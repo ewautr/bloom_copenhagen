@@ -1,0 +1,69 @@
+.header {
+  position: fixed;
+  width: calc(100% - (2 * #{$padding}));
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  z-index: 10;
+  @include respond(tablet) {
+    width: 100%;
+  }
+
+  a {
+    justify-self: center;
+    z-index: 10;
+  }
+
+  &_menu {
+    justify-self: left;
+    @include respond(tablet) {
+      margin: 10px;
+    }
+  }
+
+  &_logo {
+    width: 6rem;
+    height: 6rem;
+    justify-self: center;
+  }
+
+  &_cart {
+    height: min-content;
+    justify-self: right;
+    z-index: 10;
+    @include respond(tablet) {
+      margin: 5px;
+    }
+
+    display: grid;
+    grid-template-columns: 1fr max-content max-content max-content;
+    align-items: center;
+    justify-items: right;
+
+    p {
+      text-transform: uppercase;
+      font-size: 1.1rem;
+      display: inline-block;
+      &:first-child {
+        @include respond(tablet) {
+          display: none;
+        }
+      }
+    }
+
+    &-line {
+      width: 76px;
+      height: 1px;
+      background-color: $color-text;
+      margin: 0 3rem 0 3rem;
+      @include respond(tablet) {
+        display: none;
+      }
+    }
+    img {
+      width: 2.6rem;
+      height: 3.6rem;
+      margin-left: 0.7rem;
+      cursor: pointer;
+    }
+  }
+}

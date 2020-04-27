@@ -1,0 +1,34 @@
+.menu {
+  position: relative;
+  width: 30px;
+  height: 30px;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  z-index: 10;
+
+  cursor: pointer;
+
+  div {
+    transition: all 0.3s;
+    height: 1px;
+    background-color: $color-text;
+  }
+
+  div:first-child {
+    width: 100%;
+  }
+  div:nth-child(2) {
+    width: 65%;
+  }
+  div:nth-child(3) {
+    width: 0%;
+  }
+
+  &:hover {
+    div {
+      width: 100%;
+    }
+  }
+}
