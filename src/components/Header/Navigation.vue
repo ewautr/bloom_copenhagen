@@ -7,7 +7,9 @@
       <router-link to="/about" tag="li" class="nav_list-item"
         >about us</router-link
       >
-      <router-link to="" tag="li" class="nav_list-item">contact</router-link>
+      <router-link to="/contact" tag="li" class="nav_list-item"
+        >contact</router-link
+      >
       <router-link to="" tag="li" class="nav_list-item">brand</router-link>
     </ul>
     <Footer></Footer>

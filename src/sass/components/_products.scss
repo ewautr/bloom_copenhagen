@@ -7,6 +7,10 @@
   grid-template: 1fr / 1fr;
   align-items: center;
   justify-items: center;
+
+  @include respond(small-desk) {
+    width: 100vw;
+  }
 }
 
 .products {
@@ -17,12 +21,38 @@
     grid-template: repeat(11, 4.5vw) / repeat(21, 4.5vw);
   }
 
+  @include respond(tablet) {
+    grid-template-columns: repeat(8, calc(70vw / 8));
+    grid-template-rows: repeat(12, calc(70vw / 8));
+  }
+
+  @include respond(mobile) {
+    grid-template-columns: repeat(8, calc(100vw / 8));
+    grid-template-rows: repeat(11, calc(100vw / 8));
+  }
+
   &_info {
     grid-area: 5 / 1 / span 7 / span 7;
+
+    @include respond(tablet) {
+      grid-area: 6 / 2 / span 7 / span 6;
+    }
 
     p,
     h1 {
       text-align: right;
+
+      @include respond(tablet) {
+        margin-top: calc((70vw / 8) / 2);
+        text-align: left;
+      }
+    }
+
+    h1 {
+      @include respond(tablet) {
+        margin-top: calc((70vw / 8) / 2);
+        font-size: 5rem;
+      }
     }
 
     .btn {
@@ -38,10 +68,17 @@
     background-size: 28%;
     background-position: 73% center;
     background-repeat: no-repeat;
+
+    @include respond(tablet) {
+      grid-area: 2 / 1 / span 5 / span 8;
+      background-position: center center;
+      background-size: 26%;
+    }
   }
   &_ingredients {
     grid-area: 1 / 11 / span 2 / span 2;
     align-self: center;
+    justify-self: center;
     margin: 0 !important;
     padding: 0 !important;
     width: 80%;
@@ -50,12 +87,26 @@
     background-size: 8%;
     background-repeat: no-repeat;
     background-position: center center;
+
+    @include respond(tablet) {
+      grid-area: 1 / 1 / span 2 / span 2;
+      width: 50%;
+      height: 50%;
+    }
   }
 
   &_details {
     visibility: hidden;
 
     grid-area: 4 / 9 / span 5 / span 6;
+
+    @include respond(tablet) {
+      grid-area: 2 / 1 / span 5 / span 8;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
 
     &-labels {
       display: grid;
@@ -64,6 +115,13 @@
       align-items: baseline;
 
       margin-bottom: 3rem;
+
+      @include respond(tablet) {
+        grid-template: repeat(3, 1fr) / 1fr;
+
+        margin-right: auto;
+        margin-left: 30px;
+      }
 
       img {
         width: 4rem;
@@ -78,6 +136,12 @@
       list-style: none;
       width: max-content;
       margin: auto;
+
+      @include respond(tablet) {
+        justify-self: right;
+        margin-left: auto;
+        margin-right: 30px;
+      }
 
       li {
         font-size: 1.7rem;

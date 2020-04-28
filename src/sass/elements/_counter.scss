@@ -1,0 +1,19 @@
+.counter {
+  margin: 7rem 2rem;
+  &_price {
+    text-align: center;
+    border-bottom: 1px solid $color-text;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &_increase {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    justify-items: center;
+
+    span {
+      cursor: pointer;
+    }
+  }
+}

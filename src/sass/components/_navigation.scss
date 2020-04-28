@@ -1,16 +1,21 @@
 .nav {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -$padding;
+  left: -$padding;
 
-  width: calc(100vw - (2 * #{$padding}));
+  width: 100vw;
   height: 100vh;
   z-index: 1;
   background: #fff;
 
+  @include respond(tablet) {
+    top: 0;
+    left: 0;
+  }
+
   &_list {
     position: absolute;
-    top: 40%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
 

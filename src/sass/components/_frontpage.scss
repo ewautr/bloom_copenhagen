@@ -16,6 +16,11 @@
   grid-template-columns: repeat(21, 3.5vw);
   grid-template-rows: repeat(13, 3.5vw);
 
+  @include respond(desktop) {
+    grid-template-columns: repeat(21, 50px);
+    grid-template-rows: repeat(13, 50px);
+  }
+
   @include respond(tablet) {
     grid-template-columns: repeat(8, calc(70vw / 8));
     grid-template-rows: repeat(11, calc(70vw / 8));

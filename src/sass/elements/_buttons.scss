@@ -1,12 +1,14 @@
 .btn {
   display: block;
   margin: 2rem auto;
-  padding: 2rem 4rem;
+  padding: 1.5rem 3rem;
   border: 1px solid $color-text;
   background-color: transparent;
   outline: none;
 
   font-size: 1.7rem;
-  text-transform: uppercase;
+  text-transform: lowercase;
+  letter-spacing: 2px;
   font-weight: 500;
+  cursor: pointer;
 }

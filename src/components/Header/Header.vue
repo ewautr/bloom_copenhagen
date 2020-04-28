@@ -33,7 +33,6 @@ export default {
   },
   methods: {
     toggleNav() {
-      console.log("si");
       this.showNavigation = !this.showNavigation;
     }
   }

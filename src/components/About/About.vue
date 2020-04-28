@@ -32,10 +32,10 @@
               <b>— Quality</b>
             </h4>
             <p>
-              This is one of those rare scents that I feel like I can wear anywhere,
-              anytime. Day or night, autumn or spring. This is a floral vanilla with
-              a fruity twist. Vanilla, blackcurrant, neroli, and rose are the most
-              prominent players here. - Love, Katja
+              This is one of those rare scents that I feel like I can wear
+              anywhere, anytime. Day or night, autumn or spring. This is a
+              floral vanilla with a fruity twist. Vanilla, blackcurrant, neroli,
+              and rose are the most prominent players here. - Love, Katja
             </p>
           </div>
           <div>
@@ -43,16 +43,16 @@
               <b>— Nature</b>
             </h4>
             <p>
-              This is one of those rare scents that I feel like I can wear anywhere,
-              anytime. Day or night, autumn or spring. This is a floral vanilla with
-              a fruity twist. Vanilla, blackcurrant, neroli, and rose are the most
-              prominent players here. - Love, Katja
+              This is one of those rare scents that I feel like I can wear
+              anywhere, anytime. Day or night, autumn or spring. This is a
+              floral vanilla with a fruity twist. Vanilla, blackcurrant, neroli,
+              and rose are the most prominent players here. - Love, Katja
             </p>
           </div>
         </div>
       </article>
     </div>
-    <button class="btn">browse products</button>
+    <router-link tag="button" to="/" class="btn">browse products</router-link>
   </div>
 </template>
 

@@ -5,8 +5,8 @@
     <div class="footer_line"></div>
     <div class="footer_links">
       <ul>
-        <li>About Us</li>
-        <li>Ingredients</li>
+        <router-link to="/about" tag="li">About Us</router-link>
+        <router-link to="/" tag="li">See Products</router-link>
       </ul>
     </div>
     <div class="footer_social">
@@ -22,8 +22,8 @@
     </div>
     <div class="footer_links">
       <ul>
-        <li>Contact</li>
-        <li>FAQ</li>
+        <router-link to="/contact" tag="li">Contact</router-link>
+        <li>Brand</li>
       </ul>
     </div>
   </div>

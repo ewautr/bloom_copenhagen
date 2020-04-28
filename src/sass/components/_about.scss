@@ -19,9 +19,9 @@
   display: grid;
   grid-template: repeat(20, 3.5vw) / repeat(19, 3.5vw);
 
-  @include respond(small-desk) {
-    grid-template: repeat(20, 4.5vw) / repeat(19, 4.5vw);
-  }
+  // @include respond(small-desk) {
+  //   grid-template: repeat(20, 4.5vw) / repeat(19, 4.5vw);
+  // }
 
   @include respond(tablet) {
     grid-template: repeat(25, 50px) / 1fr;

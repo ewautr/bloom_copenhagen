@@ -1,13 +1,12 @@
 .footer {
   display: grid;
-  padding-top: $top-padding;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: max-content max-content;
   align-items: center;
   justify-items: center;
 
   position: relative;
-  z-index: -1;
+  z-index: 0;
 
   @include respond(mobile) {
     grid-template-columns: 25vw 1fr 25vw;
@@ -47,6 +46,8 @@
         font-weight: 500;
         letter-spacing: 1.3px;
         text-align: center;
+        cursor: pointer;
+
         &:not(:last-child) {
           margin-bottom: 0.6rem;
         }
