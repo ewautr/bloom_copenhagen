@@ -1,0 +1,12 @@
+.line {
+  height: 100%;
+  width: 1px;
+  background-color: $color-text;
+
+  //animation on component load
+  animation: scaleLine 1s $cubic-bezier forwards;
+
+  @include respond(tablet) {
+    visibility: hidden;
+  }
+}

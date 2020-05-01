@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header></Header>
-    <router-view></router-view>
+    <router-view class="app-content"></router-view>
     <Footer v-show="showFooter"></Footer>
   </div>
 </template>
@@ -41,4 +41,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.btn::before {
+  background-image: url(~@/assets/btn-bg.png);
+}
+</style>

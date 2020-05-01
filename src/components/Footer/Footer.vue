@@ -26,6 +26,7 @@
         <li>Brand</li>
       </ul>
     </div>
+    <p class="footer_copywright">Ewa Utracka &amp; Eva Malek &copy; 2020</p>
   </div>
 </template>
 

@@ -8,6 +8,8 @@
   align-items: center;
   justify-items: center;
 
+  scroll-snap-align: start;
+
   @include respond(small-desk) {
     width: 100vw;
   }
@@ -84,21 +86,30 @@
     width: 80%;
     height: 80%;
 
-    background-size: 8%;
-    background-repeat: no-repeat;
-    background-position: center center;
+    //show details hover animation
+    &:hover ~ .products_details > .products_details-labels,
+    &:hover ~ .products_details > ul {
+      transform: translateX(0);
+    }
 
     @include respond(tablet) {
       grid-area: 1 / 1 / span 2 / span 2;
       width: 50%;
       height: 50%;
     }
+
+    img {
+      position: absolute;
+      height: 53%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 
   &_details {
-    visibility: hidden;
-
     grid-area: 4 / 9 / span 5 / span 6;
+    overflow: hidden;
 
     @include respond(tablet) {
       grid-area: 2 / 1 / span 5 / span 8;
@@ -109,6 +120,9 @@
     }
 
     &-labels {
+      transform: translateX(-100%);
+      transition: all 0.5s $cubic-bezier;
+
       display: grid;
       grid-template: 1fr / repeat(3, 1fr);
       justify-items: center;
@@ -136,6 +150,9 @@
       list-style: none;
       width: max-content;
       margin: auto;
+
+      transform: translateX(-260%);
+      transition: all 0.5s $cubic-bezier;
 
       @include respond(tablet) {
         justify-self: right;

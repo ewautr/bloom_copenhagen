@@ -7,13 +7,17 @@
 
 @import "components/header";
 @import "components/menu";
-@import "components/navigation";
-@import "components/frontpage";
 @import "components/footer";
-@import "components/about";
 @import "components/products";
-@import "components/product";
-@import "components/contact";
+@import "components/line";
+@import "components/cartBox";
+
+@import "pages/about";
+@import "pages/frontpage";
+@import "pages/navigation";
+@import "pages/product";
+@import "pages/contact";
+@import "pages/services";
 
 @import "elements/buttons";
 @import "elements/counter";

@@ -3,7 +3,7 @@
     <p>-10% off first order</p>
     <div class="header_cart-line"></div>
     <p>0</p>
-    <img src="../../assets/cart.png" alt="" />
+    <img src="../../assets/heart.svg" alt />
   </div>
 </template>
 

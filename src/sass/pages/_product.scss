@@ -20,20 +20,35 @@
   &_main {
     width: 100%;
     height: 100%;
-    background-color: $pastel-5;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     align-items: center;
 
+    position: relative;
+
+    overflow: hidden;
+
     @include respond(small-desk) {
       grid-template-columns: 1fr;
       grid-template-rows: 50vh 40vh;
     }
 
+    &-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $pastel-5;
+
+      z-index: -1;
+    }
+
     &-img {
       width: 60%;
+      animation-delay: 1s;
 
       @include respond(small-desk) {
         width: auto;
@@ -43,13 +58,24 @@
     }
 
     &-text {
+      overflow: hidden;
+
       h4,
       h1 {
         text-align: center;
+        animation-delay: 1s;
       }
 
       h1 {
         margin-bottom: 0.5rem;
+      }
+
+      .counter {
+        animation-delay: 1s;
+      }
+
+      .btn {
+        animation-delay: 1s;
       }
     }
   }
@@ -61,10 +87,13 @@
     background-color: $color-bg;
     display: grid;
     align-items: center;
+    overflow: hidden;
 
     section {
       width: 80%;
       margin: auto;
+
+      animation-delay: 1s;
 
       h3 {
         display: inline-block;

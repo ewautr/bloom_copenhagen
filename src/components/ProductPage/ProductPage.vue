@@ -1,23 +1,20 @@
 <template>
   <div class="product">
     <div class="product_main">
-      <img
-        class="product_main-img"
-        src="../../assets/product1.png"
-        alt="product"
-      />
+      <div class="product_main-bg"></div>
+      <img class="product_main-img" src="../../assets/product1.png" alt="product" />
       <div class="product_main-text">
         <h1>Body Lotion</h1>
         <h4>with shea butter</h4>
         <Counter></Counter>
-        <button class="btn">add to cart</button>
+        <button class="btn">add to heart</button>
       </div>
     </div>
     <div class="product_details">
       <section>
         <h3>
           Description
-          <span @click="showDesc = !showDesc"> {{ descPlus }} </span>
+          <span @click="showDesc = !showDesc">{{ descPlus }}</span>
         </h3>
         <p v-if="showDesc">
           This is one of those rare scents that I feel like I can wear anywhere,
@@ -28,7 +25,8 @@
       </section>
       <section>
         <h3>
-          Directions <span @click="showDir = !showDir"> {{ dirPlus }} </span>
+          Directions
+          <span @click="showDir = !showDir">{{ dirPlus }}</span>
         </h3>
         <p v-if="showDir">
           Used for generations as everything from a teeth whitener to heavy
@@ -39,12 +37,11 @@
       </section>
       <section>
         <h3>
-          Ingredients <span @click="showIng = !showIng"> {{ ingPlus }} </span>
+          Ingredients
+          <span @click="showIng = !showIng">{{ ingPlus }}</span>
         </h3>
         <ul v-if="showIng">
-          <li class="text" v-for="ingredient in ingredients" :key="ingredient">
-            {{ ingredient }}
-          </li>
+          <li class="text" v-for="ingredient in ingredients" :key="ingredient">{{ ingredient }}</li>
         </ul>
       </section>
     </div>

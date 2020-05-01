@@ -9,6 +9,7 @@
   z-index: 10;
 
   cursor: pointer;
+  transition: all 0.2s $cubic-bezier;
 
   div {
     transition: all 0.3s;
@@ -23,6 +24,31 @@
     width: 65%;
   }
   div:nth-child(3) {
+    width: 0%;
+  }
+
+  &:hover {
+    div {
+      width: 100%;
+    }
+  }
+}
+
+.menu-show {
+  transform: translateY(15px);
+
+  div:first-child {
+    // grid-area: 1 / 1 / span 1 / span 1;
+    width: 100%;
+    transform: rotate(45deg);
+  }
+  div:nth-child(2) {
+    // grid-area: 1 / 1 / span 1 / span 1;
+    width: 100%;
+    transform: rotate(-45deg) translate(6px, -7px);
+  }
+  div:nth-child(3) {
+    display: none;
     width: 0%;
   }
 

@@ -1,0 +1,93 @@
+.services_wrapper {
+  width: calc(100vw - (2 * #{$padding}));
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  padding-top: $top-padding;
+
+  @include respond(tablet) {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+.services {
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(23, 3.5vw);
+  grid-template-rows: repeat(20, 3.5vw);
+
+  @include respond(desktop) {
+    grid-template-columns: repeat(21, 50px);
+    grid-template-rows: repeat(13, 50px);
+  }
+
+  @include respond(tablet) {
+    grid-template-columns: repeat(8, calc(70vw / 8));
+    grid-template-rows: repeat(11, calc(70vw / 8));
+  }
+  @include respond(mobile) {
+    grid-template-columns: repeat(8, calc(100vw / 8));
+    grid-template-rows: repeat(11, calc(100vw / 8));
+  }
+
+  &_line {
+    &:first-child {
+      grid-area: 1 / 1 / span 5 / span 1;
+    }
+    &:nth-child(2) {
+      grid-area: 7 / -1 / span 6 / -2;
+      justify-self: right;
+    }
+  }
+
+  &_bg1 {
+    grid-area: 2 / 2 / span 6 / span 11;
+    background-color: $pastel-5;
+  }
+  &_bg2 {
+    grid-area: 11 / 12 / span 6 / span 11;
+    background-color: $pastel-3;
+  }
+  &_heading {
+    grid-area: 1 / 2 / span 2 / span 7;
+  }
+  &_images {
+    grid-area: 4 / 4 / span 5 / span 19;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: calc(2 * 3.5vw);
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &_article {
+    grid-area: 12 / 6 / span 16 / span 15;
+    display: grid;
+    grid-template: max-content max-content / 1fr 1fr;
+    grid-column-gap: 2rem;
+
+    h2 {
+      grid-area: 1 / 1 / span 1 / span 2;
+      margin-bottom: 2rem;
+    }
+
+    h4 {
+    }
+
+    section:nth-child(2) > * {
+      text-align: right;
+    }
+  }
+
+  &_subheading {
+    grid-area: 19 / 1 / span 2 / -1;
+    justify-self: center;
+  }
+
+  &_prices {
+  }
+}

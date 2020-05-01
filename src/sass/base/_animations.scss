@@ -1,0 +1,137 @@
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFp {
+  from {
+    transform: translateX(-110%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleLine {
+  from {
+    transform: scale(1, 0);
+    transform-origin: center top;
+  }
+
+  to {
+    transform: scale(1, 1);
+    transform-origin: center top;
+  }
+}
+
+@keyframes scaleBoxes {
+  from {
+    transform: scale(0, 1);
+    transform-origin: left center;
+  }
+
+  to {
+    transform: scale(1, 1);
+    transform-origin: left center;
+  }
+}
+
+@keyframes scaleImages {
+  from {
+    transform: translateX(-110%);
+    transform-origin: left center;
+  }
+
+  to {
+    transform: translateX(0%);
+    transform-origin: left center;
+  }
+}
+
+@keyframes moveInCart {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveOutCart {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+//Animations on page enter
+
+.frontpage_item img,
+.frontpage_heading span,
+.product_main-img,
+.about_image1 img,
+.about_image2 img,
+.about_bloom > *,
+.about_mission > * {
+  transform: translateX(-120%);
+  animation: scaleImages 1s $cubic-bezier forwards;
+}
+
+.product_main-text h1,
+.product_main-text h4,
+.product_main-text .counter,
+.product_main-text .btn,
+.product_details section {
+  transform: translateX(-200%);
+  animation: scaleImages 0.5s $cubic-bezier forwards;
+}
+
+.frontpage div:nth-child(4),
+.frontpage div:nth-child(3),
+.frontpage div:nth-child(2),
+.product_main-bg {
+  transform: scale(0, 1);
+  transform-origin: left center;
+  animation: scaleBoxes 1s $cubic-bezier forwards;
+}
+
+// cart animation
+
+.fadeBgIn-enter,
+.fadeBgIn-leave-to {
+  opacity: 0;
+}
+.fadeBgIn-enter-active,
+.fadeBgIn-leave-active {
+  transition: opacity 0.5s $cubic-bezier;
+}
+
+.fadeBgIn-enter-active > .cart {
+  animation: moveInCart 0.5s $cubic-bezier forwards;
+}
+.fadeBgIn-enter-to > .cart {
+  transform: translateX(0);
+}
+.fadeBgIn-leave-active > .cart {
+  animation: moveOutCart 0.5s $cubic-bezier forwards;
+}
