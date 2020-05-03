@@ -6,7 +6,7 @@ import Services from "./components/Services/Services.vue";
 
 export const routes = [
   { path: "/about", component: About },
-  { path: "/product", component: ProductPage },
+  { path: "/product/:slug", component: ProductPage },
   { path: "/contact", component: Contact },
   { path: "/services", component: Services },
   { path: "", component: Home }

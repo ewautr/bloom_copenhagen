@@ -1,0 +1,28 @@
+.prices {
+  //   width: calc(100vw - (2 * #{padding}));
+  justify-self: left;
+  width: calc(23 * 3.5vw);
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+
+  h2 {
+    grid-area: 1 / 1 / 2 / -1;
+    padding: 0 2rem;
+  }
+
+  &_item {
+    padding: 2rem;
+
+    h4 {
+      font-weight: 800;
+      border-bottom: 1px solid black;
+      width: max-content;
+    }
+
+    ul {
+      list-style: none;
+    }
+  }
+}

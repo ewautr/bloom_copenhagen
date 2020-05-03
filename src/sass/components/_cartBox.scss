@@ -15,6 +15,16 @@
   background-color: $color-bg;
   position: relative;
 
+  @include respond(small-desk) {
+    width: 35vw;
+  }
+  @include respond(tablet) {
+    width: 50vw;
+  }
+  @include respond(mobile) {
+    width: 100vw;
+  }
+
   &_heading {
     font-size: 3rem;
     letter-spacing: 2.1px;

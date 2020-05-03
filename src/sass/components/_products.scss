@@ -1,6 +1,6 @@
 .products-wrapper {
   width: calc(100vw - (2 * #{$padding}));
-  height: 100vh;
+  min-height: 100vh;
   margin: auto;
 
   display: grid;
@@ -67,9 +67,17 @@
     background-color: $pastel-5;
     z-index: -1;
 
-    background-size: 28%;
-    background-position: 73% center;
-    background-repeat: no-repeat;
+    // background-size: 28%;
+    // background-position: 73% center;
+    // background-repeat: no-repeat;
+
+    img {
+      height: 80%;
+      position: absolute;
+      right: 20%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
 
     @include respond(tablet) {
       grid-area: 2 / 1 / span 5 / span 8;
@@ -89,6 +97,7 @@
     //show details hover animation
     &:hover ~ .products_details > .products_details-labels,
     &:hover ~ .products_details > ul {
+      visibility: visible;
       transform: translateX(0);
     }
 
@@ -121,6 +130,7 @@
 
     &-labels {
       transform: translateX(-100%);
+      visibility: hidden;
       transition: all 0.5s $cubic-bezier;
 
       display: grid;
@@ -151,6 +161,7 @@
       width: max-content;
       margin: auto;
 
+      visibility: hidden;
       transform: translateX(-260%);
       transition: all 0.5s $cubic-bezier;
 

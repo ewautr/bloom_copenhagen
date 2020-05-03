@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     toggleFooter() {
-      if (this.$route.path === "/product") {
+      if (this.$route.path.includes("/product")) {
         this.showFooter = false;
       } else {
         this.showFooter = true;

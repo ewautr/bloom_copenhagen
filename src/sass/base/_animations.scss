@@ -64,6 +64,18 @@
   }
 }
 
+@keyframes scaleOutImages {
+  from {
+    transform: translateX(0%);
+    transform-origin: left center;
+  }
+
+  to {
+    transform: translateX(-110%);
+    transform-origin: left center;
+  }
+}
+
 @keyframes moveInCart {
   from {
     transform: translateX(100%);
@@ -92,7 +104,10 @@
 .about_image1 img,
 .about_image2 img,
 .about_bloom > *,
-.about_mission > * {
+.about_mission > *,
+.services_heading,
+.services_article > *,
+.contact_img img {
   transform: translateX(-120%);
   animation: scaleImages 1s $cubic-bezier forwards;
 }
@@ -109,7 +124,11 @@
 .frontpage div:nth-child(4),
 .frontpage div:nth-child(3),
 .frontpage div:nth-child(2),
-.product_main-bg {
+.product_main-bg,
+.services_bg1,
+.services_bg2,
+.services_images img,
+.contact_img {
   transform: scale(0, 1);
   transform-origin: left center;
   animation: scaleBoxes 1s $cubic-bezier forwards;
@@ -134,4 +153,12 @@
 }
 .fadeBgIn-leave-active > .cart {
   animation: moveOutCart 0.5s $cubic-bezier forwards;
+}
+
+// Product page details animation
+.slideTextIn-enter-active {
+  animation: scaleImages 0.5s $cubic-bezier forwards;
+}
+.slideTextIn-leave-active {
+  animation: scaleOutImages 0.5s $cubic-bezier forwards;
 }

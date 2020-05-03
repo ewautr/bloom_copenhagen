@@ -14,13 +14,25 @@
 
 <script>
 export default {
+  props: {
+    currentprice: {
+      type: String,
+      required: true
+    }
+  },
   data() {
     return {
-      price: 355,
-      finalPrice: 355,
+      price: this.currentprice,
+      finalPrice: this.currentprice,
       items: 1
     };
   },
+  // watch() {
+  //   if (this.currentprice) {
+  //     this.price = this.currentProductPrice;
+  //     this.finalPrice = this.currentProductPrice;
+  //   }
+  // },
   methods: {
     moreItems() {
       this.items++;

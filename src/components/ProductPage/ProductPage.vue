@@ -2,12 +2,18 @@
   <div class="product">
     <div class="product_main">
       <div class="product_main-bg"></div>
-      <img class="product_main-img" src="../../assets/product1.png" alt="product" />
+      <img
+        class="product_main-img"
+        :src="`${currentProduct.img}`"
+        alt="product"
+      />
       <div class="product_main-text">
-        <h1>Body Lotion</h1>
-        <h4>with shea butter</h4>
-        <Counter></Counter>
-        <button class="btn">add to heart</button>
+        <h1>{{ currentProduct.title }} {{ currentProduct.price }}</h1>
+        <h4>
+          with {{ currentProduct.product_ingredients[0].ingredient_title }}
+        </h4>
+        <Counter :currentprice="currentProduct.price"></Counter>
+        <button class="btn">add to wishlist</button>
       </div>
     </div>
     <div class="product_details">
@@ -16,33 +22,39 @@
           Description
           <span @click="showDesc = !showDesc">{{ descPlus }}</span>
         </h3>
-        <p v-if="showDesc">
-          This is one of those rare scents that I feel like I can wear anywhere,
-          anytime. Day or night, autumn or spring. This is a floral vanilla with
-          a fruity twist. Vanilla, blackcurrant, neroli, and rose are the most
-          prominent players here. - Love, Katja
-        </p>
+        <transition name="slideTextIn">
+          <p v-if="showDesc">
+            {{ currentProduct.product_description }}
+          </p>
+        </transition>
       </section>
       <section>
         <h3>
           Directions
           <span @click="showDir = !showDir">{{ dirPlus }}</span>
         </h3>
-        <p v-if="showDir">
-          Used for generations as everything from a teeth whitener to heavy
-          metal detoxification, Keeko Activated Charcoal is made from coconut
-          husks and is the new must have natural ingredient to add to your
-          beauty and wellness cabinet.
-        </p>
+        <transition name="slideTextIn">
+          <p v-if="showDir">
+            {{ currentProduct.product_directions }}
+          </p>
+        </transition>
       </section>
       <section>
         <h3>
           Ingredients
           <span @click="showIng = !showIng">{{ ingPlus }}</span>
         </h3>
-        <ul v-if="showIng">
-          <li class="text" v-for="ingredient in ingredients" :key="ingredient">{{ ingredient }}</li>
-        </ul>
+        <transition name="slideTextIn">
+          <ul v-if="showIng">
+            <li
+              class="text"
+              v-for="ingredient in currentProduct.product_ingredients"
+              :key="ingredient.id"
+            >
+              {{ ingredient.ingredient_title }}
+            </li>
+          </ul>
+        </transition>
       </section>
     </div>
   </div>
@@ -57,7 +69,9 @@ export default {
       ingredients: ["avocado", "banana", "spinach", "flax seed"],
       showDesc: true,
       showDir: true,
-      showIng: true
+      showIng: true,
+      productSlug: "",
+      currentProduct: ""
     };
   },
   computed: {
@@ -85,6 +99,23 @@ export default {
   },
   components: {
     Counter
+  },
+  created() {
+    this.productSlug = this.$route.params.slug;
+    this.fetchProduct();
+  },
+  methods: {
+    fetchProduct() {
+      this.$http
+        .get(
+          `http://ewautracka.com/bloom/statamic/!/Fetch/entry/products/${this.productSlug}`
+        )
+        .then(response => {
+          // get body data
+          this.currentProduct = response.body.data;
+          console.log(this.currentProduct.price);
+        });
+    }
   }
 };
 </script>
