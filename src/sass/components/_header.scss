@@ -29,7 +29,7 @@
   &_cart {
     height: min-content;
     justify-self: right;
-    z-index: 10;
+    z-index: 1;
     @include respond(tablet) {
       margin: 5px;
     }

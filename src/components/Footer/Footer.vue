@@ -7,16 +7,25 @@
       <ul>
         <router-link to="/about" tag="li">About Us</router-link>
         <router-link to="/" tag="li">See Products</router-link>
+        <router-link to="/services" tag="li">Services</router-link>
       </ul>
     </div>
     <div class="footer_social">
-      <a href="#" class="footer_social-item">
+      <a
+        href="https://www.facebook.com/Bloombeautycopenhagen-110109817240498/"
+        class="footer_social-item"
+        target="blank"
+      >
         <img src="../../assets/facebook.png" alt="facebook" />
       </a>
-      <a href="#" class="footer_social-item">
+      <a
+        href="https://www.instagram.com/bloom_copenhagen/"
+        class="footer_social-item"
+        target="blank"
+      >
         <img src="../../assets/instagram.png" alt="facebook" />
       </a>
-      <a href="#" class="footer_social-item">
+      <a href="#" class="footer_social-item" target="blank">
         <img src="../../assets/linkedin.png" alt="facebook" />
       </a>
     </div>

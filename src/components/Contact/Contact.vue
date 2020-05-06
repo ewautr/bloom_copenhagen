@@ -30,9 +30,19 @@
         </p>
       </div>
       <form action class="contact_form">
-        <input type="email" class="text" placeholder="your@email.com" />
-        <input type="text" class="text" placeholder="your question" />
-        <button type="submit" class="text">submit</button>
+        <div class="contact_form-wrapper" :class="{'disabled': formSubmitted}">
+          <input type="email" class="text" placeholder="your@email.com" minlength="5" />
+          <label class="label">your@email.com</label>
+        </div>
+        <div class="contact_form-wrapper" :class="{'disabled': formSubmitted}">
+          <input class="text" placeholder="your question" />
+          <label class="label">your question</label>
+        </div>
+        <button
+          type="submit"
+          class="text btn"
+          @click.prevent="formSubmitted = !formSubmitted"
+        >{{ buttonContent }}</button>
       </form>
       <div class="contact_line"></div>
       <div class="contact_line"></div>
@@ -41,7 +51,23 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      formSubmitted: false
+    };
+  },
+  computed: {
+    buttonContent() {
+      if (this.formSubmitted) {
+        return "question submitted";
+      } else {
+        return "submit";
+      }
+    }
+  }
+};
 </script>
 
-<style></style>
+<style scoped>
+</style>

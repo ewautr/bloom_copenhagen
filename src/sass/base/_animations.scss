@@ -51,6 +51,63 @@
     transform-origin: left center;
   }
 }
+@keyframes scaleOutBoxes {
+  from {
+    transform: scale(1, 1);
+    transform-origin: left center;
+  }
+
+  to {
+    transform: scale(0, 1);
+    transform-origin: left center;
+  }
+}
+@keyframes scaleBoxesPrev {
+  from {
+    transform: scale(0, 1);
+    transform-origin: left center;
+  }
+
+  to {
+    transform: scale(1, 1);
+    transform-origin: left center;
+  }
+}
+@keyframes scaleOutBoxesPrev {
+  from {
+    transform: scale(1, 1);
+    transform-origin: right center;
+  }
+
+  to {
+    transform: scale(0, 1);
+    transform-origin: right center;
+  }
+}
+
+@keyframes scaleBoxesNext {
+  from {
+    transform: scale(0, 1);
+    transform-origin: right center;
+  }
+
+  to {
+    transform: scale(1, 1);
+    transform-origin: right center;
+  }
+}
+
+@keyframes scaleOutBoxesNext {
+  from {
+    transform: scale(1, 1);
+    transform-origin: left center;
+  }
+
+  to {
+    transform: scale(0, 1);
+    transform-origin: left center;
+  }
+}
 
 @keyframes scaleImages {
   from {
@@ -65,6 +122,52 @@
 }
 
 @keyframes scaleOutImages {
+  from {
+    transform: translateX(0%);
+    transform-origin: left center;
+  }
+
+  to {
+    transform: translateX(-110%);
+    transform-origin: left center;
+  }
+}
+@keyframes scaleImagesPrev {
+  from {
+    transform: translateX(-110%);
+    transform-origin: left center;
+  }
+
+  to {
+    transform: translateX(0%);
+    transform-origin: left center;
+  }
+}
+
+@keyframes scaleOutImagesPrev {
+  from {
+    transform: translateX(0%);
+    transform-origin: left center;
+  }
+
+  to {
+    transform: translateX(110%);
+    transform-origin: left center;
+  }
+}
+@keyframes scaleImagesNext {
+  from {
+    transform: translateX(110%);
+    transform-origin: left center;
+  }
+
+  to {
+    transform: translateX(0%);
+    transform-origin: left center;
+  }
+}
+
+@keyframes scaleOutImagesNext {
   from {
     transform: translateX(0%);
     transform-origin: left center;
@@ -159,6 +262,48 @@
 .slideTextIn-enter-active {
   animation: scaleImages 0.5s $cubic-bezier forwards;
 }
-.slideTextIn-leave-active {
+.slideTextIn-leave-active,
+.slideItemOut-leave-active {
   animation: scaleOutImages 0.5s $cubic-bezier forwards;
+}
+
+//Prouct slider animation
+.slidePrevProduct-enter-active,
+.slidePrevProduct-leave-active,
+.slideNextProduct-enter-active,
+.slideNextProduct-leave-active {
+  transition: all 0.5s $cubic-bezier;
+}
+//animation on 'prev'
+.slidePrevProduct-enter-active > .products_img {
+  animation: scaleBoxesPrev 0.5s $cubic-bezier forwards;
+}
+.slidePrevProduct-leave-active > .products_img {
+  animation: scaleOutBoxesPrev 0.5s $cubic-bezier forwards;
+}
+.slidePrevProduct-leave-to > .products_img {
+  transform: scale(0, 1);
+}
+.slidePrevProduct-enter-active > .products_info > h1,
+.slidePrevProduct-enter-active > .products_info > p {
+  animation: scaleImagesPrev 0.5s $cubic-bezier forwards;
+}
+.slidePrevProduct-leave-active > .products_info > h1,
+.slidePrevProduct-leave-active > .products_info > p {
+  animation: scaleOutImagesPrev 0.5s $cubic-bezier forwards;
+}
+//animation on 'next'
+.slideNextProduct-enter-active > .products_img {
+  animation: scaleBoxesNext 0.5s $cubic-bezier forwards;
+}
+.slideNextProduct-leave-active > .products_img {
+  animation: scaleOutBoxesNext 0.5s $cubic-bezier forwards;
+}
+.slideNextProduct-enter-active > .products_info > h1,
+.slideNextProduct-enter-active > .products_info > p {
+  animation: scaleImagesNext 0.5s $cubic-bezier forwards;
+}
+.slideNextProduct-leave-active > .products_info > h1,
+.slideNextProduct-leave-active > .products_info > p {
+  animation: scaleOutImagesNext 0.5s $cubic-bezier forwards;
 }

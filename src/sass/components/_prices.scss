@@ -2,11 +2,13 @@
   //   width: calc(100vw - (2 * #{padding}));
   justify-self: left;
   width: calc(23 * 3.5vw);
+  max-width: 1000px;
   margin: auto;
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-column-gap: 3rem;
+  grid-row-gap: 3rem;
   h2 {
     grid-area: 1 / 1 / 2 / -1;
     padding: 0 2rem;
@@ -14,6 +16,7 @@
 
   &_item {
     padding: 2rem;
+    position: relative;
 
     h4 {
       font-weight: 800;
@@ -23,6 +26,18 @@
 
     ul {
       list-style: none;
+
+      li {
+        font-size: 11px;
+        margin: 0.5rem 0;
+        width: 67%;
+
+        span {
+          position: absolute;
+          right: 0;
+          font-size: 11px;
+        }
+      }
     }
   }
 }

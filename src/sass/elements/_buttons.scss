@@ -37,3 +37,136 @@
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: -1;
 }
+
+//product slider buttons
+
+.sliderBtn {
+  grid-area: -1 / 7 / -2 / span 15;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left: 23vw;
+  margin-right: 2vw;
+  margin-top: 1rem;
+
+  @include respond(small-desk) {
+    margin-left: 31.4vw;
+    margin-right: 4.2vw;
+  }
+  @include respond(tablet) {
+    width: 39%;
+    margin-left: 3rem;
+    margin-top: -39%;
+    transform-origin: left;
+    transform: rotate(-90deg);
+  }
+  @include respond(mobile) {
+    width: auto;
+    margin: auto;
+    transform: rotate(0deg);
+  }
+
+  button {
+    display: block;
+    width: max-content;
+    padding: 1rem;
+
+    -webkit-appearance: none;
+    background-color: $color-bg;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s $cubic-bezier;
+    transform-origin: center;
+
+    &:first-child {
+      justify-self: left;
+    }
+    &:last-child {
+      justify-self: right;
+    }
+
+    &:hover::before {
+      width: 10rem;
+    }
+
+    &::before {
+      content: "";
+      background-color: $color-text;
+      height: 1px;
+      width: 5rem;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      transition: all 0.2s $cubic-bezier;
+      transform-origin: center;
+    }
+  }
+}
+
+.indicators {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  &_item {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    transition: all 0.2s $cubic-bezier;
+
+    &.active {
+      transform: scale(1.4);
+    }
+  }
+}
+
+//back button
+
+.backBtn {
+  display: block;
+  width: max-content;
+  padding: 1rem;
+
+  -webkit-appearance: none;
+  background-color: $color-bg;
+  border: none;
+  outline: none;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s $cubic-bezier;
+  transform-origin: center;
+
+  &:hover::before {
+    width: 10rem;
+  }
+
+  &::before {
+    content: "";
+    background-color: $color-text;
+    height: 1px;
+    width: 5rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    transition: all 0.2s $cubic-bezier;
+    transform-origin: center;
+  }
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

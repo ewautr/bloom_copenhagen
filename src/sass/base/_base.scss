@@ -15,10 +15,6 @@ html {
   @include respond(small-desk) {
     font-size: 50%; //1 rem = 8px, 8/16 = 50%
   }
-
-  @include respond(desktop) {
-    font-size: 75%; //1rem = 12, 12/16
-  }
 }
 
 body {

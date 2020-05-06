@@ -1,14 +1,10 @@
 .products-wrapper {
-  width: calc(100vw - (2 * #{$padding}));
-  min-height: 100vh;
+  width: max-content;
   margin: auto;
+  margin-bottom: 15vh;
+  overflow: hidden;
 
-  display: grid;
-  grid-template: 1fr / 1fr;
-  align-items: center;
-  justify-items: center;
-
-  scroll-snap-align: start;
+  position: relative;
 
   @include respond(small-desk) {
     width: 100vw;
@@ -18,6 +14,11 @@
 .products {
   display: grid;
   grid-template: repeat(11, 3.5vw) / repeat(21, 3.5vw);
+  position: relative;
+  width: max-content;
+  margin: auto;
+
+  overflow: hidden;
 
   @include respond(small-desk) {
     grid-template: repeat(11, 4.5vw) / repeat(21, 4.5vw);
@@ -25,7 +26,7 @@
 
   @include respond(tablet) {
     grid-template-columns: repeat(8, calc(70vw / 8));
-    grid-template-rows: repeat(12, calc(70vw / 8));
+    grid-template-rows: repeat(10, calc(70vw / 8));
   }
 
   @include respond(mobile) {
@@ -33,11 +34,33 @@
     grid-template-rows: repeat(11, calc(100vw / 8));
   }
 
-  &_info {
-    grid-area: 5 / 1 / span 7 / span 7;
+  .seemore {
+    grid-area: 10 / 3 / span 2 / span 5;
+    margin: 0;
+    height: 66%;
 
     @include respond(tablet) {
-      grid-area: 6 / 2 / span 7 / span 6;
+      grid-area: 10 / 2 / span 1 / span 4;
+      height: 77%;
+      width: 70%;
+    }
+
+    @include respond(mobile) {
+      grid-area: 1 / 3 / span 2 / span 4;
+      align-self: center;
+      justify-self: center;
+      height: 50%;
+      width: 67%;
+    }
+  }
+
+  &_info {
+    grid-area: 3 / 1 / span 7 / span 7;
+    overflow: hidden;
+    align-self: center;
+
+    @include respond(tablet) {
+      grid-area: 6 / 2 / span 4 / span 6;
     }
 
     p,
@@ -54,11 +77,8 @@
       @include respond(tablet) {
         margin-top: calc((70vw / 8) / 2);
         font-size: 5rem;
+        line-height: 100%;
       }
-    }
-
-    .btn {
-      margin-top: 5rem;
     }
   }
   &_img {
@@ -67,28 +87,23 @@
     background-color: $pastel-5;
     z-index: -1;
 
-    // background-size: 28%;
-    // background-position: 73% center;
-    // background-repeat: no-repeat;
-
     img {
-      height: 80%;
+      height: auto;
+      width: 42%;
       position: absolute;
-      right: 20%;
+      right: 10%;
       top: 50%;
       transform: translateY(-50%);
     }
 
     @include respond(tablet) {
       grid-area: 2 / 1 / span 5 / span 8;
-      background-position: center center;
-      background-size: 26%;
     }
   }
   &_ingredients {
     grid-area: 1 / 11 / span 2 / span 2;
     align-self: center;
-    justify-self: center;
+    justify-self: right;
     margin: 0 !important;
     padding: 0 !important;
     width: 80%;
@@ -176,6 +191,8 @@
         font-weight: 600;
         text-align: right;
         padding: 1rem 0;
+        width: max-content;
+        margin-left: auto;
 
         &:not(:last-child) {
           border-bottom: 1px solid $color-text;

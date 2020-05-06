@@ -11,6 +11,7 @@
     display: grid;
     grid-template-columns: 4fr 6fr;
     justify-items: center;
+    user-select: none;
 
     span {
       cursor: pointer;

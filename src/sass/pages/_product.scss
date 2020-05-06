@@ -83,18 +83,23 @@
   }
 
   &_details {
-    height: 80vh;
+    height: 70vh;
     align-self: center;
 
     background-color: $color-bg;
     display: grid;
+    grid-template-rows: repeat(3, max-content);
+    grid-row-gap: 3rem;
     align-items: center;
     overflow: hidden;
+
+    @include respond(mobile) {
+      padding-top: 4rem;
+    }
 
     section {
       width: 80%;
       margin: auto;
-      height: calc(70vh / 3);
 
       animation-delay: 1s;
 

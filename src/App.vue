@@ -45,4 +45,8 @@ export default {
 .btn::before {
   background-image: url(~@/assets/btn-bg.png);
 }
+@font-face {
+  font-family: "Manrope";
+  src: url(~@/assets/Manrope.ttf);
+}
 </style>
