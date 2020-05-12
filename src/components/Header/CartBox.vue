@@ -1,5 +1,6 @@
 <template>
   <div class="cart_wrapper">
+    <div class="clickaway" @click="clickedAway"></div>
     <div class="cart">
       <h2 class="cart_heading">Your wishlist</h2>
       <p class="cart_noitems" v-if="cartItems.length === 0">- No items. -</p>
@@ -26,7 +27,9 @@
           appointment.
           <br />- Love, Katja
         </p>
-        <router-link to="/contact" tag="button" class="btn">contact me</router-link>
+        <router-link to="/contact" tag="button" class="btn"
+          >contact me</router-link
+        >
       </div>
     </div>
   </div>
@@ -43,6 +46,9 @@ export default {
   methods: {
     deleteItem(index) {
       this.cartItems.splice(index, 1);
+    },
+    clickedAway() {
+      this.$emit("clickedAway");
     }
   }
 };

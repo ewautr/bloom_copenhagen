@@ -21,20 +21,34 @@
           <br />Katja Hunstock
         </p>
         <p>
-          +45 603 512 056
+          +45 50 18 92 91
           <br />hi@bloom.com
         </p>
-        <p>
-          Nyhavn 1-71
-          <br />1051 København K
-        </p>
+        <div>
+          <a
+            href="https://www.google.com/maps/place/Nolia/@55.6813372,12.5915233,15z/data=!4m5!3m4!1s0x0:0x6024dc29993af236!8m2!3d55.6813372!4d12.5915233"
+            target="blank"
+            class="text"
+          >
+            <span></span>Nolia
+          </a>
+          <p>
+            Sankt Annæ Pl. 16,
+            <br />1250 København
+          </p>
+        </div>
       </div>
       <form action class="contact_form">
-        <div class="contact_form-wrapper" :class="{'disabled': formSubmitted}">
-          <input type="email" class="text" placeholder="your@email.com" minlength="5" />
+        <div class="contact_form-wrapper" :class="{ disabled: formSubmitted }">
+          <input
+            type="email"
+            class="text"
+            placeholder="your@email.com"
+            minlength="5"
+          />
           <label class="label">your@email.com</label>
         </div>
-        <div class="contact_form-wrapper" :class="{'disabled': formSubmitted}">
+        <div class="contact_form-wrapper" :class="{ disabled: formSubmitted }">
           <input class="text" placeholder="your question" />
           <label class="label">your question</label>
         </div>
@@ -42,7 +56,9 @@
           type="submit"
           class="text btn"
           @click.prevent="formSubmitted = !formSubmitted"
-        >{{ buttonContent }}</button>
+        >
+          {{ buttonContent }}
+        </button>
       </form>
       <div class="contact_line"></div>
       <div class="contact_line"></div>
@@ -70,4 +86,7 @@ export default {
 </script>
 
 <style scoped>
+span {
+  background-image: url(~@/assets/pin.svg);
+}
 </style>

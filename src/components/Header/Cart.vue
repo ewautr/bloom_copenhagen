@@ -5,7 +5,11 @@
     <p>{{ likedProducts.length }}</p>
     <img src="../../assets/heart.svg" alt @click="showCart = !showCart" />
     <transition name="fadeBgIn">
-      <CartBox v-if="showCart" :cartItems="likedProducts"></CartBox>
+      <CartBox
+        v-if="showCart"
+        :cartItems="likedProducts"
+        @clickedAway="showCart = false"
+      ></CartBox>
     </transition>
   </div>
 </template>
@@ -41,7 +45,11 @@ export default {
       } else {
         this.likedProducts.push(data);
       }
+      this.showCart = true;
     });
+    // event.$on("clickedAway", () => {
+    //   this.showCart = false;
+    // });
   },
   methods: {}
 };

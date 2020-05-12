@@ -8,7 +8,23 @@
   z-index: -1;
 }
 
+.clickaway {
+  display: inline-block;
+  width: calc(100vw - 32vw);
+  height: 100vh;
+  max-width: calc(100vw - 430px);
+  @include respond(small-desk) {
+    width: calc(100vw - 35vw);
+  }
+  @include respond(tablet) {
+    width: 50vw;
+  }
+  @include respond(mobile) {
+    width: 10;
+  }
+}
 .cart {
+  display: inline-block;
   width: 32vw;
   max-width: 430px;
   height: 100vh;

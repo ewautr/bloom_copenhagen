@@ -20,11 +20,14 @@
           a fruity twist. Vanilla, blackcurrant, neroli, and rose are the most
           prominent players here. - Love, Katja
         </p>
+        <router-link tag="button" to="/#products" class="btn"
+          >browse products</router-link
+        >
       </article>
       <article class="about_mission">
         <h1>
-          Our mission is
-          <br />blooming.
+          Get the best hair
+          <br />experience.
         </h1>
         <div class="about_mission-text">
           <div>
@@ -40,7 +43,7 @@
           </div>
           <div>
             <h4>
-              <b>— Nature</b>
+              <b>— Natural beauty</b>
             </h4>
             <p>
               This is one of those rare scents that I feel like I can wear
@@ -49,10 +52,12 @@
               and rose are the most prominent players here. - Love, Katja
             </p>
           </div>
+          <router-link tag="button" to="/services" class="btn btn2"
+            >browse services</router-link
+          >
         </div>
       </article>
     </div>
-    <router-link tag="button" to="/" class="btn">browse products</router-link>
   </div>
 </template>
 

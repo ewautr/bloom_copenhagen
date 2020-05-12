@@ -201,8 +201,19 @@
 
 //Animations on page enter
 
-.frontpage_item img,
-.frontpage_heading span,
+.fp-slide-img {
+  transform: translateX(-120%);
+  animation: scaleImages 1s $cubic-bezier forwards;
+}
+
+.fp-slide-box {
+  transform: scale(0, 1);
+  transform-origin: left center;
+  animation: scaleBoxes 1s $cubic-bezier forwards;
+}
+
+// .frontpage_item img,
+// .frontpage_heading span,
 .product_main-img,
 .about_image1 img,
 .about_image2 img,
@@ -224,9 +235,9 @@
   animation: scaleImages 0.5s $cubic-bezier forwards;
 }
 
-.frontpage div:nth-child(4),
-.frontpage div:nth-child(3),
-.frontpage div:nth-child(2),
+// .frontpage div:nth-child(4),
+// .frontpage div:nth-child(3),
+// .frontpage div:nth-child(2),
 .product_main-bg,
 .services_bg1,
 .services_bg2,

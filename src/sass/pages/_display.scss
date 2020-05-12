@@ -94,19 +94,46 @@ $unit: 5.5vw;
           transform: rotateY(180deg);
           -webkit-transform: rotateY(180deg);
           a {
-            cursor: pointer;
             text-decoration: none;
             color: inherit;
+            width: max-content;
+            margin: auto;
+
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease-in;
+            transform: scale(1);
+
+            // menu elements hover animation
+            &:hover {
+              transform: scale(1.1);
+            }
+            &:hover:before {
+              transform-origin: left center;
+              transform: scale(1, 1);
+            }
+            &::before {
+              content: "";
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              transform-origin: right center;
+              height: 1px;
+              background: #000000;
+              transform: scale(0, 1);
+              transition: transform 0.4s $cubic-bezier;
+            }
           }
         }
       }
 
-      &:hover .card__side--front {
+      &.flipCard .card__side--front {
         -webkit-transform: rotateY(-180deg);
         transform: rotateY(-180deg);
       }
 
-      &:hover .card__side--back {
+      &.flipCard .card__side--back {
         -webkit-transform: rotateY(0deg);
         transform: rotateY(0deg);
       }

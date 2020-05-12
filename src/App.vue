@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Header></Header>
-    <router-view class="app-content"></router-view>
+    <transition :name="transitionEl">
+      <router-view class="app-content"></router-view>
+    </transition>
     <Footer v-show="showFooter"></Footer>
   </div>
 </template>
@@ -17,13 +19,15 @@ export default {
   },
   data() {
     return {
-      showFooter: true
+      showFooter: true,
+      transitionEl: "animateHome"
     };
   },
   watch: {
     // eslint-disable-next-line no-unused-vars
     $route(to, from) {
       this.toggleFooter();
+      this.changeTransition();
     }
   },
   created() {

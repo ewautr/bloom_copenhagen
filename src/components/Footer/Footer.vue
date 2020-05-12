@@ -5,8 +5,8 @@
     <div class="footer_line"></div>
     <div class="footer_links">
       <ul>
-        <router-link to="/about" tag="li">About Us</router-link>
-        <router-link to="/" tag="li">See Products</router-link>
+        <router-link to="/about" tag="li">About</router-link>
+        <router-link to="/#products" tag="li">Products</router-link>
         <router-link to="/services" tag="li">Services</router-link>
       </ul>
     </div>

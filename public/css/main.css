@@ -149,8 +149,15 @@ ORDER: Base + typography > general layout + grid > page layout > components
   to {
     transform: translateX(100%); } }
 
-.frontpage_item img,
-.frontpage_heading span,
+.fp-slide-img {
+  transform: translateX(-120%);
+  animation: scaleImages 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+
+.fp-slide-box {
+  transform: scale(0, 1);
+  transform-origin: left center;
+  animation: scaleBoxes 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+
 .product_main-img,
 .about_image1 img,
 .about_image2 img,
@@ -170,9 +177,6 @@ ORDER: Base + typography > general layout + grid > page layout > components
   transform: translateX(-200%);
   animation: scaleImages 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 
-.frontpage div:nth-child(4),
-.frontpage div:nth-child(3),
-.frontpage div:nth-child(2),
 .product_main-bg,
 .services_bg1,
 .services_bg2,
@@ -534,7 +538,11 @@ p,
   .products .seemore {
     grid-area: 10 / 3 / span 2 / span 5;
     margin: 0;
-    height: 66%; }
+    height: 66%;
+    width: 100%;
+    max-width: 200px;
+    max-height: 55px;
+    justify-self: right; }
     @media only screen and (max-width: 768px) {
       .products .seemore {
         grid-area: 10 / 2 / span 1 / span 4;
@@ -589,7 +597,9 @@ p,
     margin: 0 !important;
     padding: 0 !important;
     width: 80%;
-    height: 80%; }
+    height: 80%;
+    max-width: 100px !important;
+    max-height: 100px !important; }
     .products_ingredients:hover ~ .products_details > .products_details-labels,
     .products_ingredients:hover ~ .products_details > ul {
       visibility: visible;
@@ -673,7 +683,23 @@ p,
   background-color: rgba(0, 0, 0, 0.26);
   z-index: -1; }
 
+.clickaway {
+  display: inline-block;
+  width: calc(100vw - 32vw);
+  height: 100vh;
+  max-width: calc(100vw - 430px); }
+  @media only screen and (max-width: 1115px) {
+    .clickaway {
+      width: calc(100vw - 35vw); } }
+  @media only screen and (max-width: 768px) {
+    .clickaway {
+      width: 50vw; } }
+  @media only screen and (max-width: 425px) {
+    .clickaway {
+      width: 10; } }
+
 .cart {
+  display: inline-block;
   width: 32vw;
   max-width: 430px;
   height: 100vh;
@@ -784,7 +810,30 @@ p,
   width: min-content;
   padding-top: 20vh; }
   .about-wrapper .btn {
-    margin-bottom: 8rem; }
+    margin-bottom: 8rem;
+    margin-left: 3rem;
+    margin-top: 5rem;
+    max-width: 224px;
+    max-height: 55px; }
+    @media only screen and (max-width: 1115px) {
+      .about-wrapper .btn {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2rem; } }
+    @media only screen and (max-width: 768px) {
+      .about-wrapper .btn {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5rem; } }
+  .about-wrapper .btn2 {
+    grid-column: span 2;
+    margin-right: 3rem;
+    margin-left: auto;
+    width: 70%; }
+    @media only screen and (max-width: 768px) {
+      .about-wrapper .btn2 {
+        margin-left: auto;
+        margin-right: auto; } }
   @media only screen and (max-width: 768px) {
     .about-wrapper {
       width: 70%; } }
@@ -794,10 +843,10 @@ p,
 
 .about {
   display: grid;
-  grid-template: repeat(20, 3.5vw)/repeat(19, 3.5vw); }
+  grid-template: repeat(24, 3.5vw)/repeat(19, 3.5vw); }
   @media only screen and (max-width: 768px) {
     .about {
-      grid-template: repeat(25, 50px)/1fr; } }
+      grid-template: repeat(27, 50px)/1fr; } }
   .about_line {
     background-color: #000;
     width: 1px;
@@ -825,11 +874,11 @@ p,
       height: 100%;
       animation-delay: 0.5s; }
   .about_image2 {
-    grid-area: 11 / 8 / span 8 / span 11;
+    grid-area: 12 / 8 / span 8 / span 11;
     overflow: hidden; }
     @media only screen and (max-width: 1115px) {
       .about_image2 {
-        grid-area: 9 / 8 / span 8 / span 11; } }
+        grid-area: 12 / 8 / span 8 / span 11; } }
     @media only screen and (max-width: 768px) {
       .about_image2 {
         grid-area: 14 / 1 / span 6 / span 1; } }
@@ -842,7 +891,7 @@ p,
     overflow: hidden; }
     @media only screen and (max-width: 768px) {
       .about_bloom {
-        grid-area: 6 / 1 / span 6 / span 1;
+        grid-area: 6 / 1 / span 8 / span 1;
         padding: 0 1rem; } }
     .about_bloom p {
       padding-left: 3rem; }
@@ -852,14 +901,14 @@ p,
           font-size: 12px;
           line-height: 20px; } }
   .about_mission {
-    grid-area: 12 /3 / span 9 / span 12;
+    grid-area: 13 /3 / span 13 / span 12;
     overflow: hidden; }
     @media only screen and (max-width: 1115px) {
       .about_mission {
-        grid-area: 10 /4 / span 9 / span 8; } }
+        grid-area: 13 /4 / span 13 / span 8; } }
     @media only screen and (max-width: 768px) {
       .about_mission {
-        grid-area: 17 / 1 / span 9 / span 1;
+        grid-area: 17 / 1 / span 11 / span 1;
         padding: 0 1rem; } }
     .about_mission-text {
       display: grid;
@@ -1026,7 +1075,7 @@ p,
       margin-left: auto;
       margin-right: auto;
       list-style: none;
-      font-size: 4.2rem !important;
+      font-size: 3.5rem !important;
       font-weight: 700 !important;
       text-align: center;
       text-transform: uppercase !important;
@@ -1217,10 +1266,9 @@ p,
       .contact_heading {
         grid-area: 1 / 5 / span 2 / span 4; } }
   .contact_text {
-    grid-area: 9 / 2 / span 3 / span 19;
+    grid-area: 10 / 2 / span 3 / span 19;
     display: grid;
     grid-template: repeat(2, 1fr)/repeat(3, 1fr);
-    align-items: end;
     height: 80%; }
     @media only screen and (max-width: 768px) {
       .contact_text {
@@ -1241,6 +1289,38 @@ p,
       @media only screen and (max-width: 768px) {
         .contact_text h4:nth-child(3) {
           grid-area: 3 / 1 / span 1 / span 1; } }
+    .contact_text div a {
+      text-decoration: none;
+      color: inherit;
+      width: max-content;
+      display: block;
+      margin-left: -2.7rem;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s ease-in;
+      transform: scale(1); }
+      .contact_text div a:hover {
+        transform: scale(1.1); }
+      .contact_text div a:hover:before {
+        transform-origin: left center;
+        transform: scale(1, 1); }
+      .contact_text div a::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        transform-origin: right center;
+        height: 1px;
+        background: #000000;
+        transform: scale(0, 1);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+      .contact_text div a span {
+        display: inline-block;
+        background-size: 100% 100%;
+        width: 27px;
+        height: 18px;
+        transform: translateY(2px); }
   .contact_form {
     grid-area: 13 / 2 / span 2 / span 19;
     display: grid;
@@ -1474,13 +1554,34 @@ p,
         transform: rotateY(180deg);
         -webkit-transform: rotateY(180deg); }
         .display_info .card__side--back a {
-          cursor: pointer;
           text-decoration: none;
-          color: inherit; }
-    .display_info .card:hover .card__side--front {
+          color: inherit;
+          width: max-content;
+          margin: auto;
+          cursor: pointer;
+          position: relative;
+          transition: all 0.2s ease-in;
+          transform: scale(1); }
+          .display_info .card__side--back a:hover {
+            transform: scale(1.1); }
+          .display_info .card__side--back a:hover:before {
+            transform-origin: left center;
+            transform: scale(1, 1); }
+          .display_info .card__side--back a::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            transform-origin: right center;
+            height: 1px;
+            background: #000000;
+            transform: scale(0, 1);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .display_info .card.flipCard .card__side--front {
       -webkit-transform: rotateY(-180deg);
       transform: rotateY(-180deg); }
-    .display_info .card:hover .card__side--back {
+    .display_info .card.flipCard .card__side--back {
       -webkit-transform: rotateY(0deg);
       transform: rotateY(0deg); }
 
@@ -1590,6 +1691,7 @@ p,
   display: block;
   width: max-content;
   padding: 1rem;
+  margin: auto;
   -webkit-appearance: none;
   background-color: #fff;
   border: none;
@@ -1607,7 +1709,7 @@ p,
     content: "";
     background-color: #000;
     height: 1px;
-    width: 5rem;
+    width: 10rem;
     position: absolute;
     left: 50%;
     top: 50%;

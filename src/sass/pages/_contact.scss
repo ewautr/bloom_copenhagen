@@ -111,11 +111,10 @@
   }
 
   &_text {
-    grid-area: 9 / 2 / span 3 / span 19;
+    grid-area: 10 / 2 / span 3 / span 19;
 
     display: grid;
     grid-template: repeat(2, 1fr) / repeat(3, 1fr);
-    align-items: end;
     height: 80%;
 
     @include respond(tablet) {
@@ -143,6 +142,50 @@
       &:nth-child(3) {
         @include respond(tablet) {
           grid-area: 3 / 1 / span 1 / span 1;
+        }
+      }
+    }
+
+    div {
+      a {
+        text-decoration: none;
+        color: inherit;
+        width: max-content;
+        display: block;
+        margin-left: -2.7rem;
+
+        cursor: pointer;
+        position: relative;
+        transition: all 0.2s ease-in;
+        transform: scale(1);
+
+        // menu elements hover animation
+        &:hover {
+          transform: scale(1.1);
+        }
+        &:hover:before {
+          transform-origin: left center;
+          transform: scale(1, 1);
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          transform-origin: right center;
+          height: 1px;
+          background: #000000;
+          transform: scale(0, 1);
+          transition: transform 0.4s $cubic-bezier;
+        }
+
+        span {
+          display: inline-block;
+          background-size: 100% 100%;
+          width: 27px;
+          height: 18px;
+          transform: translateY(2px);
         }
       }
     }

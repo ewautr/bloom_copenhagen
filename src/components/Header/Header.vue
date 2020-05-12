@@ -1,9 +1,6 @@
 <template>
   <div class="header">
-    <Menu
-      @click.native="toggleNav"
-      :class="{ 'menu-show': showNavigation }"
-    ></Menu>
+    <Menu @click.native="toggleNav" :class="{ 'menu-show': showNavigation }"></Menu>
     <router-link to="/" :class="{ showLogo: scrolled }">
       <img class="header_logo" src="../../assets/logo_box.png" alt="logo" />
     </router-link>
@@ -11,7 +8,7 @@
     <Navigation v-if="showNavigation"></Navigation>
     <!-- <transition name="fadeBgIn">
       <CartBox v-if="showCart"></CartBox>
-    </transition> -->
+    </transition>-->
   </div>
 </template>
 
@@ -43,7 +40,6 @@ export default {
     // eslint-disable-next-line no-unused-vars
     $route(to, from) {
       this.showNavigation = false;
-      window.scrollTo(0, 0);
     }
   },
   methods: {

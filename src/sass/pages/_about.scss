@@ -5,6 +5,30 @@
 
   .btn {
     margin-bottom: 8rem;
+    margin-left: 3rem;
+    margin-top: 5rem;
+    max-width: 224px;
+    max-height: 55px;
+    @include respond(small-desk) {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 2rem;
+    }
+    @include respond(tablet) {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 5rem;
+    }
+  }
+  .btn2 {
+    grid-column: span 2;
+    margin-right: 3rem;
+    margin-left: auto;
+    width: 70%;
+    @include respond(tablet) {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   @include respond(tablet) {
@@ -17,10 +41,10 @@
 
 .about {
   display: grid;
-  grid-template: repeat(20, 3.5vw) / repeat(19, 3.5vw);
+  grid-template: repeat(24, 3.5vw) / repeat(19, 3.5vw);
 
   @include respond(tablet) {
-    grid-template: repeat(25, 50px) / 1fr;
+    grid-template: repeat(27, 50px) / 1fr;
   }
 
   &_line {
@@ -61,11 +85,11 @@
   }
 
   &_image2 {
-    grid-area: 11 / 8 / span 8 / span 11;
+    grid-area: 12 / 8 / span 8 / span 11;
     overflow: hidden;
 
     @include respond(small-desk) {
-      grid-area: 9 / 8 / span 8 / span 11;
+      grid-area: 12 / 8 / span 8 / span 11;
     }
     @include respond(tablet) {
       grid-area: 14 / 1 / span 6 / span 1;
@@ -82,7 +106,7 @@
     grid-area: 2 / 11 / span 9 / span 8;
     overflow: hidden;
     @include respond(tablet) {
-      grid-area: 6 / 1 / span 6 / span 1;
+      grid-area: 6 / 1 / span 8 / span 1;
       padding: 0 1rem;
     }
     p {
@@ -96,13 +120,13 @@
   }
 
   &_mission {
-    grid-area: 12 /3 / span 9 / span 12;
+    grid-area: 13 /3 / span 13 / span 12;
     overflow: hidden;
     @include respond(small-desk) {
-      grid-area: 10 /4 / span 9 / span 8;
+      grid-area: 13 /4 / span 13 / span 8;
     }
     @include respond(tablet) {
-      grid-area: 17 / 1 / span 9 / span 1;
+      grid-area: 17 / 1 / span 11 / span 1;
       padding: 0 1rem;
     }
 

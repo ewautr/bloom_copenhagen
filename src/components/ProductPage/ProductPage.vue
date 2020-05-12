@@ -1,8 +1,9 @@
 <template>
   <div class="product" v-if="currentProduct">
     <div class="product_main">
-      <div class="product_main-bg"></div>
+      <div class="product_main-bg" :style="`background-color: ${currentProduct.color}`"></div>
       <img class="product_main-img" :src="`${currentProduct.img}`" alt="product" />
+
       <div class="product_main-text">
         <h1>{{ currentProduct.title | capitalize }}</h1>
         <h4>
@@ -17,6 +18,7 @@
           :class="['btn', {disabled: disabledButton}]"
           @click="addToWishlist"
         >{{ buttonText }}</button>
+        <GoBack :style="`background-color: ${currentProduct.color}`"></GoBack>
       </div>
     </div>
     <div class="product_details">
@@ -58,12 +60,14 @@
 </template>
 
 <script>
+import GoBack from "../Home/GoBack.vue";
 import Counter from "./Counter.vue";
 import { eventBus } from "../../main.js";
 
 export default {
   components: {
-    Counter
+    Counter,
+    GoBack
   },
   data() {
     return {

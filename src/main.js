@@ -14,7 +14,16 @@ export const eventBus = new Vue();
 
 const router = new VueRouter({
   routes,
-  mode: "history"
+  mode: "history",
+  base: "/dist",
+  // eslint-disable-next-line no-unused-vars
+  scrollBehavior: function(to, from, savedPosition) {
+    if (to.hash) {
+      return { selector: to.hash };
+    } else {
+      return { x: 0, y: 0 };
+    }
+  }
 });
 
 new Vue({

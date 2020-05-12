@@ -133,6 +133,7 @@
   display: block;
   width: max-content;
   padding: 1rem;
+  margin: auto;
 
   -webkit-appearance: none;
   background-color: $color-bg;
@@ -155,7 +156,7 @@
     content: "";
     background-color: $color-text;
     height: 1px;
-    width: 5rem;
+    width: 10rem;
     position: absolute;
     left: 50%;
     top: 50%;
