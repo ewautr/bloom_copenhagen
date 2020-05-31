@@ -4,9 +4,8 @@
   padding-top: $top-padding;
 
   .btn {
-    margin-bottom: 8rem;
     margin-left: 3rem;
-    margin-top: 5rem;
+    margin-top: 3vw;
     max-width: 224px;
     max-height: 55px;
     @include respond(small-desk) {
@@ -41,10 +40,13 @@
 
 .about {
   display: grid;
-  grid-template: repeat(24, 3.5vw) / repeat(19, 3.5vw);
+  grid-template: repeat(33, 3.5vw) / repeat(19, 3.5vw);
 
   @include respond(tablet) {
-    grid-template: repeat(27, 50px) / 1fr;
+    grid-template: repeat(37, 50px) / 1fr;
+  }
+  @include respond(mobile) {
+    grid-template: repeat(39, 50px) / 1fr;
   }
 
   &_line {
@@ -102,6 +104,27 @@
     }
   }
 
+  &_image3 {
+    grid-area: 24 / 2 / span 8 / span 8;
+    overflow: hidden;
+
+    @include respond(tablet) {
+      grid-area: 26 / 1 / span 6 / span 1;
+    }
+    @include respond(mobile) {
+      grid-area: 27 / 1 / span 6 / span 1;
+    }
+
+    img {
+      width: 100%;
+      animation-delay: 0.5s;
+
+      @include respond(tablet) {
+        height: auto;
+      }
+    }
+  }
+
   &_bloom {
     grid-area: 2 / 11 / span 9 / span 8;
     overflow: hidden;
@@ -119,11 +142,31 @@
     }
   }
 
+  &_katja {
+    grid-area: 25 / 11 / span 9 / span 8;
+    overflow: hidden;
+    @include respond(tablet) {
+      grid-area: 32 / 1 / span 8 / span 1;
+      padding: 0 1rem;
+    }
+    @include respond(tablet) {
+      grid-area: 33 / 1 / span 8 / span 1;
+    }
+    p {
+      padding-left: 3rem;
+      @include respond(tablet) {
+        padding-left: calc(100vw / 8);
+        font-size: 12px;
+        line-height: 20px;
+      }
+    }
+  }
+
   &_mission {
     grid-area: 13 /3 / span 13 / span 12;
     overflow: hidden;
     @include respond(small-desk) {
-      grid-area: 13 /4 / span 13 / span 8;
+      grid-area: 13 /4 / span 13 / span 14;
     }
     @include respond(tablet) {
       grid-area: 17 / 1 / span 11 / span 1;

@@ -1,10 +1,10 @@
 .contact-wrapper {
   width: calc(100vw - (2 * #{$padding}));
-  height: calc(100vh - (2 * #{$padding}));
   display: grid;
   justify-items: center;
   align-items: center;
-  margin-bottom: 3vw;
+  margin-bottom: 7vw;
+  padding-top: $top-padding;
   @include respond(tablet) {
     width: 100vw;
   }
@@ -190,9 +190,12 @@
       }
     }
   }
-
+  &_form-title {
+    grid-area: 14 / 2 / span 1 / span 19;
+    font-weight: 800;
+  }
   &_form {
-    grid-area: 13 / 2 / span 2 / span 19;
+    grid-area: 14 / 2 / span 2 / span 19;
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);

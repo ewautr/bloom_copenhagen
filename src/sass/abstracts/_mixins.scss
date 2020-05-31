@@ -8,8 +8,8 @@
 @mixin grid {
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(21, 3.5vw);
-  grid-template-rows: repeat(13, 3.5vw);
+  grid-template-columns: repeat(21, 4vw);
+  grid-template-rows: repeat(13, 4vw);
 
   @include respond(desktop) {
     grid-template-columns: repeat(21, 50px);
@@ -28,21 +28,17 @@
 
 // MEDIA QUERY MANAGER
 /*
-0 - 600px:      Phone
-600 - 900px:    Tablet portrait
-900 - 1200px:   Tablet landscape
-[1200 - 1800] is where our normal styles apply
-1800px + :      Big desktop
+0 - 425px:      Mobile
+425 - 768px:    Tablet
+768 - 1115:     Small desktop
+[1115 - 1530] is where the normal styles apply
+1530px + :      Desktop
 
 $breakpoint arguement choices:
-- phone
-- tab-port
-- tab-land
-- big-desktop
-
-ORDER: Base + typography > general layout + grid > page layout > components
-
-1em = 16px
+- mobile
+- tablet
+- small-desk
+- desktop
 */
 
 @mixin respond($breakpoint) {
@@ -51,18 +47,13 @@ ORDER: Base + typography > general layout + grid > page layout > components
       @content;
     } //600px
   }
-  @if $breakpoint == tab-port {
-    @media only screen and (max-width: 562px) {
-      @content;
-    } //900px
-  }
   @if $breakpoint == tablet {
     @media only screen and (max-width: 768px) {
       @content;
     } //1200px
   }
   @if $breakpoint == small-desk {
-    @media only screen and (max-width: 1115px) {
+    @media only screen and (max-width: 1220px) {
       @content;
     } //1800
   }

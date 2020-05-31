@@ -19,7 +19,12 @@ const router = new VueRouter({
   // eslint-disable-next-line no-unused-vars
   scrollBehavior: function(to, from, savedPosition) {
     if (to.hash) {
-      return { selector: to.hash };
+      // eslint-disable-next-line no-unused-vars
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve({ selector: to.hash });
+        }, 500);
+      });
     } else {
       return { x: 0, y: 0 };
     }

@@ -12,7 +12,11 @@
   display: inline-block;
   width: calc(100vw - 32vw);
   height: 100vh;
-  max-width: calc(100vw - 430px);
+
+  @include respond(desk) {
+    width: calc(100vw - 430px);
+  }
+
   @include respond(small-desk) {
     width: calc(100vw - 35vw);
   }
@@ -26,7 +30,6 @@
 .cart {
   display: inline-block;
   width: 32vw;
-  max-width: 430px;
   height: 100vh;
   margin-left: auto;
   margin-right: 0;
@@ -34,6 +37,10 @@
   position: relative;
 
   overflow: hidden;
+
+  @include respond(desk) {
+    width: 430px;
+  }
 
   @include respond(small-desk) {
     width: 35vw;
@@ -43,6 +50,31 @@
   }
   @include respond(mobile) {
     width: 100vw;
+  }
+
+  &_checkout {
+    width: 80%;
+    margin: auto;
+    margin-top: 4rem;
+
+    h2 {
+      font-size: 2rem;
+      letter-spacing: 2.1px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    p {
+      text-transform: none;
+      margin-bottom: 2rem;
+
+      span {
+        display: block;
+        font-weight: 800;
+        text-decoration: underline;
+        margin: 0.5rem 0;
+      }
+    }
   }
 
   &_heading {

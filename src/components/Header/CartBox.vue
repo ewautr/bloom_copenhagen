@@ -21,15 +21,25 @@
           </div>
         </section>
       </transition-group>
+      <transition name="checkoutInfo">
+        <div class="cart_checkout" v-if="checkout">
+          <h2>CHECKOUT</h2>
+          <p>
+            In order to place an order or book an appointment, please contact me
+            directly here:
+            <span>+45 50 18 92 91</span>
+            <span>hi@bloom.com</span>
+            - Love, Katja
+          </p>
+        </div>
+      </transition>
       <div class="cart_info">
-        <p>
-          Please contact me directly in order to place an order or book an
-          appointment.
-          <br />- Love, Katja
-        </p>
-        <router-link to="/contact" tag="button" class="btn"
-          >contact me</router-link
+        <button
+          @click="checkout = !checkout"
+          :class="['btn', { disabled: disabledButton }]"
         >
+          {{ buttonText }}
+        </button>
       </div>
     </div>
   </div>
@@ -41,6 +51,37 @@ export default {
     cartItems: {
       type: Array,
       required: true
+    }
+  },
+  data() {
+    return {
+      checkout: false,
+      disabledButton: false
+    };
+  },
+  watch: {
+    cartItems: function() {
+      if (this.cartItems.length === 0) {
+        this.disabledButton = true;
+      } else {
+        this.disabledButton = false;
+      }
+    }
+  },
+  computed: {
+    buttonText() {
+      if (this.checkout) {
+        return "return";
+      } else {
+        return "place order";
+      }
+    }
+  },
+  created() {
+    if (this.cartItems.length === 0) {
+      this.disabledButton = true;
+    } else {
+      this.disabledButton = false;
     }
   },
   methods: {

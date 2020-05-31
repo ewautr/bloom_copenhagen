@@ -6,10 +6,6 @@ $unit: 5.5vw;
   position: relative;
   display: grid;
   align-items: center;
-
-  @include respond(small-desk) {
-    width: 100vw;
-  }
 }
 
 .display {

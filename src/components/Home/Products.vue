@@ -1,5 +1,5 @@
 <template>
-  <div class="products-wrapper" id="products">
+  <div class="products-wrapper">
     <transition :name="slideTransition" mode="out-in">
       <Product v-for="(product) in filteredProducts" :key="product.id" :product="product"></Product>
     </transition>

@@ -199,6 +199,15 @@
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 //Animations on page enter
 
 .fp-slide-img {
@@ -212,13 +221,13 @@
   animation: scaleBoxes 1s $cubic-bezier forwards;
 }
 
-// .frontpage_item img,
-// .frontpage_heading span,
 .product_main-img,
 .about_image1 img,
 .about_image2 img,
+.about_image3 img,
 .about_bloom > *,
 .about_mission > *,
+.about_katja > *,
 .services_heading,
 .services_article > *,
 .contact_img img {
@@ -235,9 +244,6 @@
   animation: scaleImages 0.5s $cubic-bezier forwards;
 }
 
-// .frontpage div:nth-child(4),
-// .frontpage div:nth-child(3),
-// .frontpage div:nth-child(2),
 .product_main-bg,
 .services_bg1,
 .services_bg2,
@@ -246,6 +252,12 @@
   transform: scale(0, 1);
   transform-origin: left center;
   animation: scaleBoxes 1s $cubic-bezier forwards;
+}
+
+//back button on product page appear
+
+.backBtn {
+  animation: fadeIn 1s $cubic-bezier forwards;
 }
 
 // cart animation
@@ -270,11 +282,13 @@
 }
 
 // Product page details animation
-.slideTextIn-enter-active {
+.slideTextIn-enter-active,
+.checkoutInfo-enter-active {
   animation: scaleImages 0.5s $cubic-bezier forwards;
 }
 .slideTextIn-leave-active,
-.slideItemOut-leave-active {
+.slideItemOut-leave-active,
+.checkoutInfo-leave-active {
   animation: scaleOutImages 0.5s $cubic-bezier forwards;
 }
 

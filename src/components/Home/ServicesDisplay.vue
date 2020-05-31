@@ -18,14 +18,12 @@
             >
               <span></span>Nolia, Copenhagen
             </a>
-            <router-link to="/services" tag="button" class="btn"
-              >see services</router-link
-            >
+            <router-link to="/services" tag="button" class="btn">see services</router-link>
           </div>
         </div>
 
         <div class="display_info-line"></div>
-        <h4 class="display_info-subheading">selected products:</h4>
+        <h4 id="products" class="display_info-subheading">selected products:</h4>
         <div class="display_info-line"></div>
       </div>
     </div>
@@ -41,7 +39,7 @@ export default {
     setObserver() {
       let options = {
         root: null,
-        rootMargin: "-100px 0px -100px 0px",
+        rootMargin: "-50px 0px -100px 0px",
         threshold: 1
       };
 

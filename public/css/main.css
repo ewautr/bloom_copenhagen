@@ -1,19 +1,15 @@
 /*
-0 - 600px:      Phone
-600 - 900px:    Tablet portrait
-900 - 1200px:   Tablet landscape
-[1200 - 1800] is where our normal styles apply
-1800px + :      Big desktop
+0 - 425px:      Mobile
+425 - 768px:    Tablet
+768 - 1115:     Small desktop
+[1115 - 1530] is where the normal styles apply
+1530px + :      Desktop
 
 $breakpoint arguement choices:
-- phone
-- tab-port
-- tab-land
-- big-desktop
-
-ORDER: Base + typography > general layout + grid > page layout > components
-
-1em = 16px
+- mobile
+- tablet
+- small-desk
+- desktop
 */
 @keyframes slideOut {
   from {
@@ -149,6 +145,12 @@ ORDER: Base + typography > general layout + grid > page layout > components
   to {
     transform: translateX(100%); } }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
 .fp-slide-img {
   transform: translateX(-120%);
   animation: scaleImages 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
@@ -161,8 +163,10 @@ ORDER: Base + typography > general layout + grid > page layout > components
 .product_main-img,
 .about_image1 img,
 .about_image2 img,
+.about_image3 img,
 .about_bloom > *,
 .about_mission > *,
+.about_katja > *,
 .services_heading,
 .services_article > *,
 .contact_img img {
@@ -186,6 +190,9 @@ ORDER: Base + typography > general layout + grid > page layout > components
   transform-origin: left center;
   animation: scaleBoxes 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 
+.backBtn {
+  animation: fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+
 .fadeBgIn-enter,
 .fadeBgIn-leave-to {
   opacity: 0; }
@@ -203,11 +210,13 @@ ORDER: Base + typography > general layout + grid > page layout > components
 .fadeBgIn-leave-active > .cart {
   animation: moveOutCart 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 
-.slideTextIn-enter-active {
+.slideTextIn-enter-active,
+.checkoutInfo-enter-active {
   animation: scaleImages 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 
 .slideTextIn-leave-active,
-.slideItemOut-leave-active {
+.slideItemOut-leave-active,
+.checkoutInfo-leave-active {
   animation: scaleOutImages 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 
 .slidePrevProduct-enter-active,
@@ -257,7 +266,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
 html {
   font-size: 62.5%;
   scroll-behavior: smooth; }
-  @media only screen and (max-width: 1115px) {
+  @media only screen and (max-width: 1220px) {
     html {
       font-size: 50%; } }
 
@@ -513,7 +522,7 @@ p,
   margin-bottom: 15vh;
   overflow: hidden;
   position: relative; }
-  @media only screen and (max-width: 1115px) {
+  @media only screen and (max-width: 1220px) {
     .products-wrapper {
       width: 100vw; } }
 
@@ -524,7 +533,7 @@ p,
   width: max-content;
   margin: auto;
   overflow: hidden; }
-  @media only screen and (max-width: 1115px) {
+  @media only screen and (max-width: 1220px) {
     .products {
       grid-template: repeat(11, 4.5vw)/repeat(21, 4.5vw); } }
   @media only screen and (max-width: 768px) {
@@ -686,9 +695,8 @@ p,
 .clickaway {
   display: inline-block;
   width: calc(100vw - 32vw);
-  height: 100vh;
-  max-width: calc(100vw - 430px); }
-  @media only screen and (max-width: 1115px) {
+  height: 100vh; }
+  @media only screen and (max-width: 1220px) {
     .clickaway {
       width: calc(100vw - 35vw); } }
   @media only screen and (max-width: 768px) {
@@ -701,14 +709,13 @@ p,
 .cart {
   display: inline-block;
   width: 32vw;
-  max-width: 430px;
   height: 100vh;
   margin-left: auto;
   margin-right: 0;
   background-color: #fff;
   position: relative;
   overflow: hidden; }
-  @media only screen and (max-width: 1115px) {
+  @media only screen and (max-width: 1220px) {
     .cart {
       width: 35vw; } }
   @media only screen and (max-width: 768px) {
@@ -717,6 +724,24 @@ p,
   @media only screen and (max-width: 425px) {
     .cart {
       width: 100vw; } }
+  .cart_checkout {
+    width: 80%;
+    margin: auto;
+    margin-top: 4rem; }
+    .cart_checkout h2 {
+      font-size: 2rem;
+      letter-spacing: 2.1px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 2rem; }
+    .cart_checkout p {
+      text-transform: none;
+      margin-bottom: 2rem; }
+      .cart_checkout p span {
+        display: block;
+        font-weight: 800;
+        text-decoration: underline;
+        margin: 0.5rem 0; }
   .cart_heading {
     font-size: 2rem;
     letter-spacing: 2.1px;
@@ -789,7 +814,30 @@ p,
     padding: 0 2rem; }
   .prices_item {
     padding: 2rem;
-    position: relative; }
+    position: relative;
+    transform-origin: center;
+    background-color: #fff;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+    .prices_item:hover:nth-of-type(1n) {
+      transform: scale(1.3);
+      background-color: #ffe9ea;
+      z-index: 10; }
+    .prices_item:hover:nth-of-type(2n) {
+      transform: scale(1.3);
+      background-color: #fbdaee;
+      z-index: 10; }
+    .prices_item:hover:nth-of-type(3n) {
+      transform: scale(1.3);
+      background-color: #dacfff;
+      z-index: 10; }
+    .prices_item:hover:nth-of-type(4n) {
+      transform: scale(1.3);
+      background-color: #c5ffff;
+      z-index: 10; }
+    .prices_item:hover:nth-of-type(5n) {
+      transform: scale(1.3);
+      background-color: #e2feff;
+      z-index: 10; }
     .prices_item h4 {
       font-weight: 800;
       border-bottom: 1px solid black;
@@ -797,12 +845,13 @@ p,
     .prices_item ul {
       list-style: none; }
       .prices_item ul li {
-        font-size: 11px;
+        font-size: 12px;
         margin: 0.5rem 0;
-        width: 67%; }
+        width: 67%;
+        letter-spacing: 0; }
         .prices_item ul li span {
           position: absolute;
-          right: 0;
+          right: 2rem;
           font-size: 11px; }
 
 .about-wrapper {
@@ -810,12 +859,11 @@ p,
   width: min-content;
   padding-top: 20vh; }
   .about-wrapper .btn {
-    margin-bottom: 8rem;
     margin-left: 3rem;
-    margin-top: 5rem;
+    margin-top: 3vw;
     max-width: 224px;
     max-height: 55px; }
-    @media only screen and (max-width: 1115px) {
+    @media only screen and (max-width: 1220px) {
       .about-wrapper .btn {
         margin-left: auto;
         margin-right: auto;
@@ -843,10 +891,13 @@ p,
 
 .about {
   display: grid;
-  grid-template: repeat(24, 3.5vw)/repeat(19, 3.5vw); }
+  grid-template: repeat(33, 3.5vw)/repeat(19, 3.5vw); }
   @media only screen and (max-width: 768px) {
     .about {
-      grid-template: repeat(27, 50px)/1fr; } }
+      grid-template: repeat(37, 50px)/1fr; } }
+  @media only screen and (max-width: 425px) {
+    .about {
+      grid-template: repeat(39, 50px)/1fr; } }
   .about_line {
     background-color: #000;
     width: 1px;
@@ -860,7 +911,7 @@ p,
     .about_line:nth-child(2) {
       grid-area: 14 / -2 / span 5 / span 1;
       justify-self: right; }
-      @media only screen and (max-width: 1115px) {
+      @media only screen and (max-width: 1220px) {
         .about_line:nth-child(2) {
           grid-area: 12 / -2 / span 5 / span 1; } }
   .about_image1 {
@@ -876,7 +927,7 @@ p,
   .about_image2 {
     grid-area: 12 / 8 / span 8 / span 11;
     overflow: hidden; }
-    @media only screen and (max-width: 1115px) {
+    @media only screen and (max-width: 1220px) {
       .about_image2 {
         grid-area: 12 / 8 / span 8 / span 11; } }
     @media only screen and (max-width: 768px) {
@@ -886,6 +937,21 @@ p,
       width: 100%;
       height: 100%;
       animation-delay: 0.5s; }
+  .about_image3 {
+    grid-area: 24 / 2 / span 8 / span 8;
+    overflow: hidden; }
+    @media only screen and (max-width: 768px) {
+      .about_image3 {
+        grid-area: 26 / 1 / span 6 / span 1; } }
+    @media only screen and (max-width: 425px) {
+      .about_image3 {
+        grid-area: 27 / 1 / span 6 / span 1; } }
+    .about_image3 img {
+      width: 100%;
+      animation-delay: 0.5s; }
+      @media only screen and (max-width: 768px) {
+        .about_image3 img {
+          height: auto; } }
   .about_bloom {
     grid-area: 2 / 11 / span 9 / span 8;
     overflow: hidden; }
@@ -900,12 +966,29 @@ p,
           padding-left: calc(100vw / 8);
           font-size: 12px;
           line-height: 20px; } }
+  .about_katja {
+    grid-area: 25 / 11 / span 9 / span 8;
+    overflow: hidden; }
+    @media only screen and (max-width: 768px) {
+      .about_katja {
+        grid-area: 32 / 1 / span 8 / span 1;
+        padding: 0 1rem; } }
+    @media only screen and (max-width: 768px) {
+      .about_katja {
+        grid-area: 33 / 1 / span 8 / span 1; } }
+    .about_katja p {
+      padding-left: 3rem; }
+      @media only screen and (max-width: 768px) {
+        .about_katja p {
+          padding-left: calc(100vw / 8);
+          font-size: 12px;
+          line-height: 20px; } }
   .about_mission {
     grid-area: 13 /3 / span 13 / span 12;
     overflow: hidden; }
-    @media only screen and (max-width: 1115px) {
+    @media only screen and (max-width: 1220px) {
       .about_mission {
-        grid-area: 13 /4 / span 13 / span 8; } }
+        grid-area: 13 /4 / span 13 / span 14; } }
     @media only screen and (max-width: 768px) {
       .about_mission {
         grid-area: 17 / 1 / span 11 / span 1;
@@ -933,10 +1016,11 @@ p,
 
 .frontpage-wrapper {
   width: calc(100vw - (2 * 3rem));
-  height: calc(100vh - (2 * 3rem));
+  height: 80vh;
   display: grid;
   justify-items: center;
-  align-items: center; }
+  align-items: center;
+  padding-top: 10vh; }
   @media only screen and (max-width: 768px) {
     .frontpage-wrapper {
       width: 100vw;
@@ -946,8 +1030,8 @@ p,
 .frontpage {
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(21, 3.5vw);
-  grid-template-rows: repeat(13, 3.5vw); }
+  grid-template-columns: repeat(21, 4vw);
+  grid-template-rows: repeat(13, 4vw); }
   @media only screen and (min-width: 1530px) {
     .frontpage {
       grid-template-columns: repeat(21, 50px);
@@ -1001,9 +1085,10 @@ p,
     animation-delay: 1.5s; }
     @media only screen and (max-width: 768px) {
       .frontpage div:nth-child(3) {
-        grid-area: 9 / 3 / span 3 / span 4; } }
+        grid-area: 9 / 3 / span 3 / span 4;
+        z-index: 3; } }
   .frontpage div:nth-child(4) {
-    background: #ffe9ea;
+    background: #dacfff;
     grid-area: 5 / 12 / span 6 / span 5;
     z-index: 2;
     animation-delay: 1.4s; }
@@ -1021,7 +1106,8 @@ p,
       animation-delay: 1.3s; }
   .frontpage div:nth-child(6) {
     animation-delay: 4s;
-    grid-area: 9 / 7 / span 3 / span 6; }
+    grid-area: 3 / 8 / span 7 / span 6;
+    z-index: 3; }
     @media only screen and (max-width: 768px) {
       .frontpage div:nth-child(6) {
         grid-area: 6 / 2 / span 2 / span 3;
@@ -1046,7 +1132,6 @@ p,
     @media only screen and (max-width: 768px) {
       .frontpage div:nth-child(8) {
         grid-area: 3 / 2 / span 2 / span 5;
-        background-color: #000;
         height: 100%; }
         .frontpage div:nth-child(8) img {
           margin: auto;
@@ -1108,7 +1193,7 @@ p,
     align-items: center;
     position: relative;
     overflow: hidden; }
-    @media only screen and (max-width: 1115px) {
+    @media only screen and (max-width: 1220px) {
       .product_main {
         grid-template-columns: 1fr;
         grid-template-rows: 50vh 40vh;
@@ -1124,7 +1209,7 @@ p,
     .product_main-img {
       width: 60%;
       animation-delay: 1s; }
-      @media only screen and (max-width: 1115px) {
+      @media only screen and (max-width: 1220px) {
         .product_main-img {
           width: auto;
           height: 70%;
@@ -1171,11 +1256,11 @@ p,
 
 .contact-wrapper {
   width: calc(100vw - (2 * 3rem));
-  height: calc(100vh - (2 * 3rem));
   display: grid;
   justify-items: center;
   align-items: center;
-  margin-bottom: 3vw; }
+  margin-bottom: 7vw;
+  padding-top: 20vh; }
   @media only screen and (max-width: 768px) {
     .contact-wrapper {
       width: 100vw; } }
@@ -1183,8 +1268,8 @@ p,
 .contact {
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(21, 3.5vw);
-  grid-template-rows: repeat(13, 3.5vw);
+  grid-template-columns: repeat(21, 4vw);
+  grid-template-rows: repeat(13, 4vw);
   grid-template-rows: repeat(16, 3.5vw); }
   @media only screen and (min-width: 1530px) {
     .contact {
@@ -1321,8 +1406,11 @@ p,
         width: 27px;
         height: 18px;
         transform: translateY(2px); }
+  .contact_form-title {
+    grid-area: 14 / 2 / span 1 / span 19;
+    font-weight: 800; }
   .contact_form {
-    grid-area: 13 / 2 / span 2 / span 19;
+    grid-area: 14 / 2 / span 2 / span 19;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     border: 1px solid #000;
@@ -1406,8 +1494,8 @@ p,
   overflow: hidden; }
   @media only screen and (min-width: 1530px) {
     .services {
-      grid-template-columns: repeat(21, 50px);
-      grid-template-rows: repeat(13, 50px); } }
+      grid-template-columns: repeat(23, 50px);
+      grid-template-rows: repeat(17, 50px); } }
   @media only screen and (max-width: 768px) {
     .services {
       grid-template-columns: repeat(8, calc(70vw / 8));
@@ -1453,6 +1541,9 @@ p,
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: calc(2 * 3.5vw); }
+    @media only screen and (min-width: 1530px) {
+      .services_images {
+        grid-column-gap: 7rem; } }
     @media only screen and (max-width: 768px) {
       .services_images {
         grid-area: 3 / 3 / span 14 / span 4;
@@ -1464,6 +1555,37 @@ p,
       @media only screen and (max-width: 768px) {
         .services_images img {
           height: auto; } }
+  .services_instagram {
+    grid-area: 3 / 4 / span 1 / span 10;
+    font-size: 1.2rem;
+    align-self: center; }
+    @media only screen and (max-width: 768px) {
+      .services_instagram {
+        grid-area: 3 / 1 / span 7 / span 2; } }
+    .services_instagram a {
+      display: inline-block;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s ease-in;
+      transform: scale(1);
+      color: inherit;
+      text-decoration: none; }
+      .services_instagram a:hover {
+        transform: scale(1.1); }
+      .services_instagram a:hover:before {
+        transform-origin: left center;
+        transform: scale(1, 1); }
+      .services_instagram a::before {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        transform-origin: right center;
+        height: 1px;
+        background: #000000;
+        transform: scale(0, 1);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
   .services_article {
     overflow: hidden;
     grid-area: 12 / 6 / span 16 / span 15;
@@ -1492,9 +1614,6 @@ p,
   position: relative;
   display: grid;
   align-items: center; }
-  @media only screen and (max-width: 1115px) {
-    .display_wrapper {
-      width: 100vw; } }
 
 .display_info {
   justify-self: center;
@@ -1625,7 +1744,7 @@ p,
   margin-left: 23vw;
   margin-right: 2vw;
   margin-top: 1rem; }
-  @media only screen and (max-width: 1115px) {
+  @media only screen and (max-width: 1220px) {
     .sliderBtn {
       margin-left: 31.4vw;
       margin-right: 4.2vw; } }
@@ -1650,7 +1769,8 @@ p,
     border: none;
     outline: none;
     text-transform: uppercase;
-    font-size: 10px;
+    font-size: 12px;
+    font-weight: 800;
     letter-spacing: 2.5px;
     position: relative;
     cursor: pointer;
@@ -1700,11 +1820,10 @@ p,
   font-size: 10px;
   letter-spacing: 2.5px;
   position: relative;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-origin: center; }
+  cursor: pointer; }
   .backBtn:hover::before {
-    width: 10rem; }
+    transform: translate(-50%, -50%) scale(1.5, 1);
+    transform-origin: center; }
   .backBtn::before {
     content: "";
     background-color: #000;
@@ -1715,8 +1834,7 @@ p,
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-origin: center; }
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
 
 .disabled {
   opacity: 0.5;

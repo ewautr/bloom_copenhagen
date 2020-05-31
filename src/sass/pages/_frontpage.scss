@@ -1,9 +1,10 @@
 .frontpage-wrapper {
   width: calc(100vw - (2 * #{$padding}));
-  height: calc(100vh - (2 * #{$padding}));
+  height: 80vh;
   display: grid;
   justify-items: center;
   align-items: center;
+  padding-top: 10vh;
 
   @include respond(tablet) {
     width: 100vw;
@@ -70,11 +71,12 @@
     animation-delay: 1.5s;
     @include respond(tablet) {
       grid-area: 9 / 3 / span 3 / span 4;
+      z-index: 3;
     }
   }
 
   div:nth-child(4) {
-    background: $pastel-1;
+    background: $pastel-3;
     grid-area: 5 / 12 / span 6 / span 5;
     z-index: 2;
     animation-delay: 1.4s;
@@ -97,7 +99,8 @@
 
   div:nth-child(6) {
     animation-delay: 4s;
-    grid-area: 9 / 7 / span 3 / span 6;
+    grid-area: 3 / 8 / span 7 / span 6;
+    z-index: 3;
     @include respond(tablet) {
       grid-area: 6 / 2 / span 2 / span 3;
       z-index: 3;
@@ -128,7 +131,6 @@
     align-self: center;
     @include respond(tablet) {
       grid-area: 3 / 2 / span 2 / span 5;
-      background-color: $color-text;
       height: 100%;
 
       img {

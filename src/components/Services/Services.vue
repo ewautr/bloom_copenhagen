@@ -6,6 +6,9 @@
       <div class="services_bg1"></div>
       <div class="services_bg2"></div>
       <h2 class="services_heading">Services</h2>
+      <h4 class="services_instagram">
+        <a href="https://www.instagram.com/bloom_copenhagen/" target="blank">@bloom_copenhagen</a>
+      </h4>
       <article class="services_article">
         <h2>Best hair experience.</h2>
         <section class="section1">
@@ -47,8 +50,8 @@
     </div>
     <h4 class="services_subheading">
       <b>
-        Sit comfortably and let me do my magic
-        <br />- Love, Katja
+        Sit comfortably and let me do my magic.
+        <br />- Love, Katja &hearts;
       </b>
     </h4>
     <div class="services_horiz-line"></div>

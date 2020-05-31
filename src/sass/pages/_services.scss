@@ -23,8 +23,8 @@
   overflow: hidden;
 
   @include respond(desktop) {
-    grid-template-columns: repeat(21, 50px);
-    grid-template-rows: repeat(13, 50px);
+    grid-template-columns: repeat(23, 50px);
+    grid-template-rows: repeat(17, 50px);
   }
 
   @include respond(tablet) {
@@ -87,6 +87,10 @@
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: calc(2 * 3.5vw);
 
+    @include respond(desktop) {
+      grid-column-gap: 7rem;
+    }
+
     @include respond(tablet) {
       grid-area: 3 / 3 / span 14 / span 4;
       grid-template-rows: repeat(3, 1fr);
@@ -102,6 +106,46 @@
       }
     }
   }
+  &_instagram {
+    grid-area: 3 / 4 / span 1 / span 10;
+    font-size: 1.2rem;
+    align-self: center;
+
+    @include respond(tablet) {
+      grid-area: 3 / 1 / span 7 / span 2;
+    }
+    a {
+      display: inline-block;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s ease-in;
+      transform: scale(1);
+      color: inherit;
+      text-decoration: none;
+
+      // link hover animation
+      &:hover {
+        transform: scale(1.1);
+      }
+      &:hover:before {
+        transform-origin: left center;
+        transform: scale(1, 1);
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        transform-origin: right center;
+        height: 1px;
+        background: #000000;
+        transform: scale(0, 1);
+        transition: transform 0.4s $cubic-bezier;
+      }
+    }
+  }
+
   &_article {
     overflow: hidden;
     grid-area: 12 / 6 / span 16 / span 15;
