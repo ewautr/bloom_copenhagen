@@ -11,24 +11,6 @@ $breakpoint arguement choices:
 - small-desk
 - desktop
 */
-@keyframes slideOut {
-  from {
-    transform: translateX(0); }
-  to {
-    transform: translateX(100%); } }
-
-@keyframes slideIn {
-  from {
-    transform: translateX(100%); }
-  to {
-    transform: translateX(0); } }
-
-@keyframes slideInFp {
-  from {
-    transform: translateX(-110%); }
-  to {
-    transform: translateX(0); } }
-
 @keyframes scaleLine {
   from {
     transform: scale(1, 0);
@@ -145,12 +127,6 @@ $breakpoint arguement choices:
   to {
     transform: translateX(100%); } }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
-
 .fp-slide-img {
   transform: translateX(-120%);
   animation: scaleImages 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
@@ -189,9 +165,6 @@ $breakpoint arguement choices:
   transform: scale(0, 1);
   transform-origin: left center;
   animation: scaleBoxes 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-
-.backBtn {
-  animation: fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 
 .fadeBgIn-enter,
 .fadeBgIn-leave-to {
@@ -480,6 +453,9 @@ p,
         transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
       .footer_links ul li:not(:last-child) {
         margin-bottom: 0.6rem; }
+      .footer_links ul li a {
+        color: inherit;
+        text-decoration: none; }
   .footer_social {
     margin-top: 3rem; }
     .footer_social-item {
@@ -570,6 +546,9 @@ p,
     align-self: center; }
     @media only screen and (max-width: 768px) {
       .products_info {
+        grid-area: 3 / 1 / span 4 / span 4; } }
+    @media only screen and (max-width: 425px) {
+      .products_info {
         grid-area: 6 / 2 / span 4 / span 6; } }
     .products_info p,
     .products_info h1 {
@@ -631,7 +610,7 @@ p,
       .products_details {
         grid-area: 2 / 1 / span 5 / span 8;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         align-items: center; } }
     .products_details-labels {
       transform: translateX(-100%);
@@ -644,9 +623,17 @@ p,
       margin-bottom: 3rem; }
       @media only screen and (max-width: 768px) {
         .products_details-labels {
+          align-self: baseline;
+          margin-top: 8rem;
+          width: 38%; } }
+      @media only screen and (max-width: 425px) {
+        .products_details-labels {
+          align-self: center;
+          margin-top: 0;
           grid-template: repeat(3, 1fr)/1fr;
-          margin-right: auto;
-          margin-left: 30px; } }
+          grid-gap: 1rem;
+          width: 38%;
+          margin-bottom: 0; } }
       .products_details-labels img {
         width: 4rem;
         display: inline-block; }
@@ -661,9 +648,7 @@ p,
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
       @media only screen and (max-width: 768px) {
         .products_details ul {
-          justify-self: right;
-          margin-left: auto;
-          margin-right: 30px; } }
+          display: none; } }
       .products_details ul li {
         font-size: 1.7rem;
         font-weight: 600;
@@ -976,6 +961,9 @@ p,
     @media only screen and (max-width: 768px) {
       .about_katja {
         grid-area: 33 / 1 / span 8 / span 1; } }
+    @media only screen and (max-width: 425px) {
+      .about_katja h1 {
+        color: #fff; } }
     .about_katja p {
       padding-left: 3rem; }
       @media only screen and (max-width: 768px) {
@@ -1009,10 +997,12 @@ p,
     .about_mission h4,
     .about_mission p {
       text-align: right; }
-  @media only screen and (max-width: 768px) {
-    .about h1 {
-      font-size: 4.5rem;
-      font-weight: 900; } }
+  .about h1 {
+    width: 80%; }
+    @media only screen and (max-width: 768px) {
+      .about h1 {
+        font-size: 4.5rem;
+        font-weight: 900; } }
 
 .frontpage-wrapper {
   width: calc(100vw - (2 * 3rem));
@@ -1169,6 +1159,9 @@ p,
       border: none !important; }
       .nav_list-item:not(:last-child) {
         margin-bottom: 4rem; }
+      .nav_list-item a {
+        color: inherit;
+        text-decoration: none; }
 
 .product {
   width: 100vw;
@@ -1283,6 +1276,12 @@ p,
     .contact {
       grid-template-columns: repeat(8, calc(100vw / 8));
       grid-template-rows: repeat(11, calc(100vw / 8)); } }
+  @media only screen and (max-width: 768px) {
+    .contact {
+      grid-template-rows: repeat(15, calc(70vw / 8)); } }
+  @media only screen and (max-width: 425px) {
+    .contact {
+      grid-template-rows: repeat(15, calc(100vw / 8)); } }
   .contact_line {
     grid-area: 1 / 1 / span 5 / span 1;
     background-color: #000;
@@ -1409,6 +1408,12 @@ p,
   .contact_form-title {
     grid-area: 14 / 2 / span 1 / span 19;
     font-weight: 800; }
+    @media only screen and (max-width: 768px) {
+      .contact_form-title {
+        grid-area: 10 / 2 / span 1 / span 3; } }
+    @media only screen and (max-width: 425px) {
+      .contact_form-title {
+        grid-area: 10 / 2 / span 1 / span 3; } }
   .contact_form {
     grid-area: 14 / 2 / span 2 / span 19;
     display: grid;
@@ -1419,7 +1424,7 @@ p,
     position: relative; }
     @media only screen and (max-width: 768px) {
       .contact_form {
-        grid-area: 10 / 2 / span 5 / span 6;
+        grid-area: 10 / 2 / span 4 / span 6;
         grid-template-columns: 1fr;
         grid-template-rows: repeat(3, 1fr);
         height: 100%; } }
@@ -1499,7 +1504,7 @@ p,
   @media only screen and (max-width: 768px) {
     .services {
       grid-template-columns: repeat(8, calc(70vw / 8));
-      grid-template-rows: repeat(27, calc(70vw / 8)); } }
+      grid-template-rows: repeat(22, calc(70vw / 8)); } }
   @media only screen and (max-width: 425px) {
     .services {
       grid-template-columns: repeat(8, calc(100vw / 8));
@@ -1526,8 +1531,12 @@ p,
     z-index: -1;
     animation-delay: 1s;
     grid-area: 11 / 12 / span 6 / span 11;
-    background-color: #dacfff; }
+    background-color: #dacfff;
+    z-index: 8; }
     @media only screen and (max-width: 768px) {
+      .services_bg2 {
+        grid-area: 18 / 3 / span 5 / span 6; } }
+    @media only screen and (max-width: 425px) {
       .services_bg2 {
         grid-area: 18 / 3 / span 7 / span 6; } }
   .services_heading {
@@ -1561,7 +1570,7 @@ p,
     align-self: center; }
     @media only screen and (max-width: 768px) {
       .services_instagram {
-        grid-area: 3 / 1 / span 7 / span 2; } }
+        grid-area: 2 / 3 / span 1 / span 2; } }
     .services_instagram a {
       display: inline-block;
       cursor: pointer;
@@ -1591,7 +1600,8 @@ p,
     grid-area: 12 / 6 / span 16 / span 15;
     display: grid;
     grid-template: max-content max-content / 1fr 1fr;
-    grid-column-gap: 2rem; }
+    grid-column-gap: 2rem;
+    z-index: 9; }
     @media only screen and (max-width: 768px) {
       .services_article {
         grid-area: 18 / 1 / span 9 / span 7; } }

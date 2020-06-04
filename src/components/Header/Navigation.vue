@@ -1,17 +1,25 @@
 <template>
   <div class="nav">
-    <ul class="nav_list">
+    <ul @click="navItemClicked" class="nav_list">
       <router-link to="/services" tag="li" class="nav_list-item btn">services</router-link>
       <router-link to="/#products" tag="li" class="nav_list-item btn">products</router-link>
       <router-link to="/contact" tag="li" class="nav_list-item btn">contact</router-link>
       <router-link to="/about" tag="li" class="nav_list-item btn">about</router-link>
-      <router-link to tag="li" class="nav_list-item btn">brand</router-link>
+      <li class="nav_list-item btn">
+        <a href="https://ewautracka.com/dist/brandmanual.pdf">brand</a>
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    navItemClicked() {
+      this.$emit("navItemClicked");
+    }
+  }
+};
 </script>
 
 <style scoped>

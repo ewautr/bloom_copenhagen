@@ -9,37 +9,25 @@
       <h4 class="services_instagram">
         <a href="https://www.instagram.com/bloom_copenhagen/" target="blank">@bloom_copenhagen</a>
       </h4>
-      <article class="services_article">
-        <h2>Best hair experience.</h2>
+      <article class="services_article rellax" data-rellax-speed="-0.5">
+        <h2>{{ content.article_title }}</h2>
         <section class="section1">
           <h4>
-            <b>— Personal approach</b>
+            <b>{{ content.subtitle_one }}</b>
           </h4>
-          <p>
-            With my work I try to maintain the natural beauty of the client,
-            which is always already there. I see the individuality of the
-            person, I start with a proper consultation and serve with my
-            professional advice. I take time to see whats important for the
-            customer and make sure they leave my salon feeling beautiful inside
-            and out.
-          </p>
+          <p>{{ content.paragraph_one }}</p>
         </section>
         <section class="section1">
           <h4>
-            <b>— Years of experience</b>
+            <b>{{ content.subtitle_two }}</b>
           </h4>
-          <p>
-            I base my knowledge on 7 years of experience in an international
-            work environment in the highest quality salons. Throuought my life I
-            have worked with countless international customers and high
-            demanding clientele.
-          </p>
+          <p>{{ content.paragraph_two }}</p>
         </section>
       </article>
-      <div class="services_images">
-        <img src="../../assets/services-img1.png" alt="img1" />
-        <img src="../../assets/services_img2.png" alt="img2" />
-        <img src="../../assets/services_img3.png" alt="img3" />
+      <div class="services_images rellax" data-rellax-speed="-1">
+        <img :src="`${content.image_1}`" alt="img1" />
+        <img :src="`${content.image_2}`" alt="img2" />
+        <img :src="`${content.image_3}`" alt="img3" />
       </div>
       <!-- <h4 class="services_subheading">
         <b>
@@ -49,10 +37,7 @@
       </h4>-->
     </div>
     <h4 class="services_subheading">
-      <b>
-        Sit comfortably and let me do my magic.
-        <br />- Love, Katja &hearts;
-      </b>
+      <b>{{ content.quote }}</b>
     </h4>
     <div class="services_horiz-line"></div>
     <div class="prices">
@@ -71,17 +56,25 @@
 
 <script>
 import Prices from "./Prices.vue";
+import Rellax from "rellax";
+
 export default {
   data() {
     return {
       categories: [],
-      services: []
+      services: [],
+      content: []
     };
   },
   components: {
     Prices
   },
+  mounted() {
+    // eslint-disable-next-line no-unused-vars
+    const rellax = new Rellax(".rellax");
+  },
   created() {
+    this.fetchContent();
     this.fetchCategories();
     this.fetchServices();
   },
@@ -89,7 +82,9 @@ export default {
     fetchCategories() {
       // GET /someUrl
       this.$http
-        .get("http://ewautracka.com/bloom/statamic/!/Fetch/taxonomy/categories")
+        .get(
+          "https://ewautracka.com/bloom/statamic/!/Fetch/taxonomy/categories"
+        )
         .then(response => {
           // get body data
           this.categories = response.body.data;
@@ -98,10 +93,21 @@ export default {
     fetchServices() {
       // GET /someUrl
       this.$http
-        .get("http://ewautracka.com/bloom/statamic/!/Fetch/collection/services")
+        .get(
+          "https://ewautracka.com/bloom/statamic/!/Fetch/collection/services"
+        )
         .then(response => {
           // get body data
           this.services = response.body.data;
+        });
+    },
+    fetchContent() {
+      // GET /someUrl
+      this.$http
+        .get("https://ewautracka.com/bloom/statamic/!/Fetch/page/services")
+        .then(response => {
+          // get body data
+          this.content = response.body.data;
         });
     }
   }

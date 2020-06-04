@@ -122,7 +122,7 @@ export default {
     fetchProduct() {
       this.$http
         .get(
-          `http://ewautracka.com/bloom/statamic/!/Fetch/entry/products/${this.productSlug}`
+          `https://ewautracka.com/bloom/statamic/!/Fetch/entry/products/${this.productSlug}`
         )
         .then(response => {
           this.currentProduct = response.body.data;

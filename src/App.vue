@@ -27,7 +27,6 @@ export default {
     // eslint-disable-next-line no-unused-vars
     $route(to, from) {
       this.toggleFooter();
-      this.changeTransition();
     }
   },
   created() {

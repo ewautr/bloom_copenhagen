@@ -48,7 +48,9 @@ export default {
     fetchProducts() {
       // GET /someUrl
       this.$http
-        .get("http://ewautracka.com/bloom/statamic/!/Fetch/collection/products")
+        .get(
+          "https://ewautracka.com/bloom/statamic/!/Fetch/collection/products"
+        )
         .then(response => {
           // get body data
           this.products = response.body.data;

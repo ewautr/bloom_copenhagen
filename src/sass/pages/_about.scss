@@ -152,6 +152,11 @@
     @include respond(tablet) {
       grid-area: 33 / 1 / span 8 / span 1;
     }
+    h1 {
+      @include respond(mobile) {
+        color: #fff;
+      }
+    }
     p {
       padding-left: 3rem;
       @include respond(tablet) {
@@ -196,6 +201,7 @@
   }
 
   h1 {
+    width: 80%;
     @include respond(tablet) {
       font-size: 4.5rem;
       font-weight: 900;

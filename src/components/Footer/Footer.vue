@@ -32,7 +32,9 @@
     <div class="footer_links">
       <ul>
         <router-link to="/contact" tag="li">Contact</router-link>
-        <li>Brand</li>
+        <li>
+          <a href="https://ewautracka.com/dist/brandmanual.pdf">Brand</a>
+        </li>
       </ul>
     </div>
     <p class="footer_copywright">Ewa Utracka &amp; Eva Malek &copy; 2020</p>

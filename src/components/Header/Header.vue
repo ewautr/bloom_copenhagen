@@ -5,7 +5,7 @@
       <img class="header_logo" src="../../assets/logo_box.png" alt="logo" />
     </router-link>
     <Cart></Cart>
-    <Navigation v-if="showNavigation"></Navigation>
+    <Navigation @navItemClicked="toggleNav" v-if="showNavigation"></Navigation>
     <!-- <transition name="fadeBgIn">
       <CartBox v-if="showCart"></CartBox>
     </transition>-->

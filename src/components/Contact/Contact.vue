@@ -12,69 +12,70 @@
         Make it
         <br />organic.
       </h1>
-      <div class="contact_text">
-        <h4>I am</h4>
-        <h4>based in</h4>
-        <h4>orders/bookings</h4>
-        <p>
-          BLOOM Copenhagen
-          <br />Katja Hunstock
-        </p>
+      <div class="contact_text rellax" data-rellax-speed="1">
+        <h4>{{ content.name_title }}</h4>
+        <h4>{{ content.address_title }}</h4>
+        <h4>{{ content.contact_title }}</h4>
+        <p v-html="content.name_content"></p>
 
         <div>
-          <a
-            href="https://www.google.com/maps/place/Nolia/@55.6813372,12.5915233,15z/data=!4m5!3m4!1s0x0:0x6024dc29993af236!8m2!3d55.6813372!4d12.5915233"
-            target="blank"
-            class="text"
-          >
-            <span></span>Nolia
+          <a :href="`${content.salon_link}`" target="blank" class="text">
+            <span></span>
+            {{ content.salon_name }}
           </a>
-          <p>
-            Sankt Annæ Pl. 16,
-            <br />1250 København
-          </p>
+          <p v-html="content.address_content"></p>
         </div>
-        <p>
-          +45 50 18 92 91
-          <br />hi@bloom.com
-        </p>
+        <p v-html="content.contact_content"></p>
       </div>
       <h4 class="contact_form-title">Let's get in touch:</h4>
-      <form action class="contact_form">
+      <form action="/statamic/!/Form/create" ref="form" class="contact_form" target="frame">
+        <input type="hidden" name="_token" value="TxsDdPU7NjovOTrDgwXcNFnwP6oMwPIHFmyt94QU" />
+        <input
+          type="hidden"
+          name="_params"
+          value="eyJpdiI6IlVETmJtQTNKbUVMWklTRlpvdUxwMVE9PSIsInZhbHVlIjoiSklYY1dFbVdIdHhEamVMMFhDZ3BwVERSazlzb2pWSnlHSVwvajNVV1RvVDJXR0VJVk5ubFwvcjdOamZCdVhOaHB5IiwibWFjIjoiNzMxYmI1YmNkOGExMjFlOGEwOTE5NjIyYTU3Nzc3MWUzMTY2YTYxZDk1YjUxNGMxNzVjNDE4OTA1NGQzNWUxZSJ9"
+        />
         <div class="contact_form-wrapper" :class="{ disabled: formSubmitted }">
           <input
+            id="email"
             type="email"
             class="text"
             placeholder="your@email.com"
             minlength="5"
             v-model="email"
+            name="email"
           />
-          <label class="label">your@email.com</label>
+          <label for="email" class="label">your@email.com</label>
         </div>
         <div class="contact_form-wrapper" :class="{ disabled: formSubmitted }">
-          <input class="text" placeholder="your message" v-model="message" />
-          <label class="label">your message</label>
+          <input
+            id="message"
+            class="text"
+            placeholder="your message"
+            v-model="message"
+            name="message"
+          />
+          <label for="message" class="label">your message</label>
         </div>
-        <button
-          type="submit"
-          class="text btn"
-          @click.prevent="formSubmitted = !formSubmitted"
-          @click="post()"
-        >{{ buttonContent }}</button>
+        <button type="submit" @click="submitForm" class="text btn">{{ buttonContent }}</button>
       </form>
       <div class="contact_line"></div>
       <div class="contact_line"></div>
     </div>
+    <iframe name="frame" style="display: none;"></iframe>
   </div>
 </template>
 
 <script>
+import Rellax from "rellax";
+
 export default {
   data() {
     return {
       formSubmitted: false,
       email: "",
-      message: ""
+      message: "",
+      content: []
     };
   },
   computed: {
@@ -86,27 +87,26 @@ export default {
       }
     }
   },
+  created() {
+    this.fetchContent();
+  },
+  mounted() {
+    // eslint-disable-next-line no-unused-vars
+    const rellax = new Rellax(".rellax");
+  },
   methods: {
-    post() {
-      const newData = {
-        email: this.email,
-        message: this.message
-      };
-      const postData = JSON.stringify(newData);
-
-      fetch(
-        `http://ewautracka.com/bloom/statamic/!/Fetch/collection/messages`,
-        {
-          method: "post",
-          headers: {
-            "Content-Type": "application/json",
-            "cache-control": "no-cache"
-          },
-          body: postData
-        }
-      )
-        .then(res => res.json())
-        .then(() => {});
+    fetchContent() {
+      // GET /someUrl
+      this.$http
+        .get("https://ewautracka.com/bloom/statamic/!/Fetch/page/contact")
+        .then(response => {
+          // get body data
+          this.content = response.body.data;
+        });
+    },
+    submitForm() {
+      this.formSubmitted = !this.formSubmitted;
+      this.$refs.form.reset();
     }
   }
 };

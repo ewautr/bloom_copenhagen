@@ -1,33 +1,3 @@
-@keyframes slideOut {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(100%);
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(100%);
-  }
-
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInFp {
-  from {
-    transform: translateX(-110%);
-  }
-
-  to {
-    transform: translateX(0);
-  }
-}
-
 @keyframes scaleLine {
   from {
     transform: scale(1, 0);
@@ -199,15 +169,6 @@
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 //Animations on page enter
 
 .fp-slide-img {
@@ -252,12 +213,6 @@
   transform: scale(0, 1);
   transform-origin: left center;
   animation: scaleBoxes 1s $cubic-bezier forwards;
-}
-
-//back button on product page appear
-
-.backBtn {
-  animation: fadeIn 1s $cubic-bezier forwards;
 }
 
 // cart animation
